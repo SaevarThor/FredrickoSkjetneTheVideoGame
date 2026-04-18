@@ -24,7 +24,7 @@ public class EyeController : MonoBehaviour
     [Header("Shake Settings")]
     [SerializeField] private float shakeStartDistance = 10f;
     [SerializeField] private float shakeMaxDistance = 2f;
-    [SerializeField] private float maxPositionShake = 0.05f;   // How far it shifts in units
+    [SerializeField] private float shakeIntensity = 0.05f;   // How far it shifts in units
     [SerializeField] private float maxRotationShake = 3f;      // How many degrees it rotates
     [SerializeField] private float shakeSpeed = 25f;           // Vibration frequency
 
@@ -95,7 +95,6 @@ public class EyeController : MonoBehaviour
         {
             // Snap back to rest when out of range
             transform.localPosition = _originLocalPosition;
-            transform.localRotation = _originLocalRotation;
             return;
         }
 
@@ -109,7 +108,9 @@ public class EyeController : MonoBehaviour
             (Mathf.Sin(t * 1.0f) + Mathf.Sin(t * 2.3f)) * 0.5f,
             (Mathf.Sin(t * 1.7f) + Mathf.Sin(t * 3.1f)) * 0.5f,
             (Mathf.Sin(t * 1.3f) + Mathf.Sin(t * 2.7f)) * 0.5f
-        ) * maxPositionShake * shakeT;
+        ) * (shakeIntensity / 1000) * shakeT;
+
+        transform.localPosition = _originLocalPosition + posShake;
     }
 
     Transform GetNearestPOI()
