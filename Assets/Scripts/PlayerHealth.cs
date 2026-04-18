@@ -36,6 +36,7 @@ public class PlayerHealth : MonoBehaviour, IDamageable
         if (amount > 0 && hitSource != null && hitClips.Length > 0)
         {
             hitSource.PlayOneShot(hitClips[Random.Range(0, hitClips.Length)]);
+            CameraShake.Instance.Shake(10);
         }
         if (amount == 0 && hitSource != null && shieldHitClips.Length > 0)
         {

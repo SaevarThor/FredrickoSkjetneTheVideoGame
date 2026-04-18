@@ -23,6 +23,7 @@ public class EnemyBullet : MonoBehaviour
     [HideInInspector] public float   damage;
     [HideInInspector] public LayerMask hitLayers;
     [HideInInspector] public GameObject bulletHolePrefab;
+    public GameObject BloodHitPrefab; 
     [HideInInspector] public GameObject impactFlashPrefab;
 
     private Vector3      _direction;
@@ -38,6 +39,11 @@ public class EnemyBullet : MonoBehaviour
     public void Init(Vector3 direction)
     {
         _direction = direction.normalized;
+    }
+
+    private void Start()
+    {
+        Destroy(gameObject, maxLifetime);
     }
 
     private void Update()
@@ -69,33 +75,31 @@ public class EnemyBullet : MonoBehaviour
 
         // Damage
         IDamageable damageable = hit.collider.GetComponent<IDamageable>();
-        damageable?.TakeDamage(damage);
+        if (damageable != null)
+        {
+            damageable.TakeDamage(damage);
 
-        // Camera shake if player was hit
-        if (hit.collider.CompareTag("Player") && CameraShake.Instance != null)
-            CameraShake.Instance.Shake(0.5f);
-
-        // Bullet hole decal
-        if (bulletHolePrefab != null)
+            if (BloodHitPrefab != null)
+            {
+                GameObject blood = Instantiate(BloodHitPrefab, hit.point + hit.normal * 0.01f, Quaternion.LookRotation(hit.normal));
+                Destroy(blood, 1f);
+            }
+        }else if (bulletHolePrefab != null)
         {
             GameObject hole = Instantiate(bulletHolePrefab,
                 hit.point + hit.normal * 0.01f,
                 Quaternion.LookRotation(-hit.normal));
             Destroy(hole, 10f);
+
+            // Impact flash
+            if (impactFlashPrefab != null)
+            {
+                GameObject flash = Instantiate(impactFlashPrefab, hit.point, Quaternion.identity);
+                Destroy(flash, 0.2f);
+            }
         }
 
-        // Impact flash
-        if (impactFlashPrefab != null)
-        {
-            GameObject flash = Instantiate(impactFlashPrefab, hit.point, Quaternion.identity);
-            Destroy(flash, 0.2f);
-        }
-
-        // Snap bullet mesh to impact point, hide renderer, let trail fade out naturally
         transform.position = hit.point;
-        //GetComponent<Renderer>()?.gameObject.SetActive(false);
-
-        // Wait for trail to fade before destroying
         StartCoroutine(DestroyAfterTrail());
     }
 

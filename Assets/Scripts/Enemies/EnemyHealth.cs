@@ -4,7 +4,7 @@ using UnityEngine;
 public class EnemyHealth : MonoBehaviour, IDamageable
 {
 
-    public float MaxHealth { get; private set; } = 100f;
+    public float MaxHealth = 100f;
     public float CurrentHealth { get; private set; }
 
     [SerializeField] private GameObject bloodExplosion;

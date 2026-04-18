@@ -30,8 +30,10 @@ public class EnemyAI : MonoBehaviour
     [Header("Rotation")]
     [SerializeField] private float rotationSpeed    = 8f;     // Always faces player
 
+
+
     // State machine
-    private enum CombatMove { Strafe, Approach, Retreat }
+    private enum CombatMove { Strafe, Approach, Retreat, StandStill }
     private enum State { Idle, Combat }
 
     private State      _state      = State.Idle;
@@ -124,6 +126,12 @@ public class EnemyAI : MonoBehaviour
     // Choose whether to strafe, approach, or retreat based on distance
     private void DecideCombatMove(float dist)
     {
+        if (_shooter._isWindingUp)
+        {
+            _combatMove = CombatMove.StandStill;
+            return;
+        }
+
         if (dist < tooCloseDistance)
         {
             _combatMove = CombatMove.Retreat;
@@ -169,6 +177,11 @@ public class EnemyAI : MonoBehaviour
                 // Directly away from player
                 moveDir = -toPlayer;
                 _agent.speed = retreatSpeed;
+                break;
+
+            case CombatMove.StandStill:
+                moveDir = Vector3.zero;
+                _agent.speed = 0f;
                 break;
         }
 

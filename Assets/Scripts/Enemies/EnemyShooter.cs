@@ -35,7 +35,7 @@ public class EnemyShooter : MonoBehaviour
 
     // State
     private bool      _engaged     = false;
-    private bool      _isWindingUp = false;
+    public bool      _isWindingUp = false;
     private float     _fireTimer   = 0f;
     private Transform _player;
 
