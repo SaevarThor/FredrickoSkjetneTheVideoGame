@@ -41,6 +41,8 @@ CommandLineArgsForDesignTimeEvaluation=-langversion:9.0 -define:UNITY_6000_4_3;U
 
 [sourceFiles]
 Assets/Scripts/
+ BillboardSprite.cs
+ CameraShake.cs
  PlayerMovement.cs
  PS2PostProcess.cs
  ShotGunPelletTrail.cs
@@ -322,6 +324,7 @@ Library/PackageCache/
  com.unity.nuget.mono-cecil@ecb9724e46ff/Mono.Cecil.dll
  com.unity.visualscripting@8bed5ad90189/Runtime/VisualScripting.Flow/Dependencies/NCalc/Unity.VisualScripting.Antlr3.Runtime.dll
 Library/ScriptAssemblies/
+ Unity.2D.Sprite.Editor.dll
  Unity.Collections.dll
  Unity.Collections.Editor.dll
  Unity.InternalAPIEditorBridge.ShaderGraph.Editor.dll

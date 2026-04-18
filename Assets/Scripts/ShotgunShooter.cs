@@ -16,21 +16,29 @@ public class ShotgunShooter : MonoBehaviour
     [SerializeField] private float recoilKick = 4f;
     [SerializeField] private float recoilRecoverySpeed = 8f;
 
+    [Header("Camera Shake")]
+    [SerializeField, Range(0f, 1f)] private float shakeTrauma = 0.7f;  // How hard the camera shakes (0..1)
+
     [Header("References")]
     [SerializeField] private Camera playerCamera;
-    [SerializeField] private Transform muzzlePoint;         // Empty GO at barrel tip — also used as trail origin
-    [SerializeField] private ParticleSystem muzzleFlash;
+    [SerializeField] private Transform muzzlePoint;
     [SerializeField] private AudioSource audioSource;
     [SerializeField] private AudioClip fireSound;
     [SerializeField] private AudioClip reloadSound;
     [SerializeField] private AudioClip emptyClickSound;
+    
+    [Header("Muzzle Flash")]
+    [SerializeField] private SpriteRenderer muzzleFlashRenderer;
+    [SerializeField] private Sprite[] flashFrames;
+    [SerializeField] private float flashMinScale = 0.25f;
+    [SerializeField] private float flashMaxScale = 0.45f;
+    private Material _flashMat;
 
     [Header("Impact")]
     [SerializeField] private GameObject bulletHolePrefab;
     [SerializeField] private LayerMask hitLayers = ~0;
 
     [Header("Pellet Trails")]
-    [Tooltip("Assign the ShotgunPelletTrail component here (lives on any persistent GO)")]
     [SerializeField] private ShotgunPelletTrail pelletTrail;
 
     // State
@@ -48,9 +56,11 @@ public class ShotgunShooter : MonoBehaviour
         if (playerCamera == null)
             playerCamera = Camera.main;
 
-        // Auto-find trail component if not assigned in Inspector
         if (pelletTrail == null)
             pelletTrail = GetComponentInChildren<ShotgunPelletTrail>();
+
+        if (muzzleFlashRenderer != null)
+            _flashMat = muzzleFlashRenderer.material;
     }
 
     private void Update()
@@ -84,14 +94,20 @@ public class ShotgunShooter : MonoBehaviour
         _nextFireTime = Time.time + fireRate;
         _currentAmmo--;
 
-        if (muzzleFlash != null)
-            muzzleFlash.Play();
-
         PlaySound(fireSound);
+
+        StartCoroutine(ShowMuzzleFlash());
+
+        // Vertical recoil kick
         _recoilOffset -= recoilKick;
 
+        // Weapon sway punch
         if (_weaponSway != null)
             _weaponSway.ApplyFirePunch();
+
+        // Camera shake — via singleton, no reference needed
+        if (CameraShake.Instance != null)
+            CameraShake.Instance.Shake(shakeTrauma);
 
         for (int i = 0; i < pelletsPerShot; i++)
             FirePellet();
@@ -100,23 +116,37 @@ public class ShotgunShooter : MonoBehaviour
             StartCoroutine(Reload());
     }
 
+    private IEnumerator ShowMuzzleFlash()
+    {
+        muzzleFlashRenderer.transform.localScale =
+            Vector3.one * Random.Range(flashMinScale, flashMaxScale);
+        muzzleFlashRenderer.transform.localRotation =
+            Quaternion.Euler(0f, 0f, Random.Range(0f, 360f));
+
+        foreach (Sprite frame in flashFrames)
+        {
+            muzzleFlashRenderer.sprite = frame;
+            muzzleFlashRenderer.enabled = true;
+            yield return null;
+        }
+
+        muzzleFlashRenderer.enabled = false;
+    }
+
     private void FirePellet()
     {
         Vector3 spreadDir = GetSpreadDirection();
         Ray ray = new Ray(playerCamera.transform.position, spreadDir);
 
-        // Determine the muzzle world position for trail start
         Vector3 trailOrigin = muzzlePoint != null
             ? muzzlePoint.position
             : playerCamera.transform.position;
 
         if (Physics.Raycast(ray, out RaycastHit hit, range, hitLayers))
         {
-            // Damage
             IDamageable target = hit.collider.GetComponent<IDamageable>();
             target?.TakeDamage(damage);
 
-            // Bullet hole decal
             if (bulletHolePrefab != null)
             {
                 GameObject hole = Instantiate(bulletHolePrefab,
@@ -125,13 +155,11 @@ public class ShotgunShooter : MonoBehaviour
                 Destroy(hole, 10f);
             }
 
-            // Spawn trail from muzzle to impact point
             if (pelletTrail != null)
                 pelletTrail.SpawnTrail(trailOrigin, hit.point);
         }
         else
         {
-            // Miss — trail travels to max range
             if (pelletTrail != null)
                 pelletTrail.SpawnMissTrail(trailOrigin, spreadDir, range);
         }
@@ -171,7 +199,10 @@ public class ShotgunShooter : MonoBehaviour
     private void PlaySound(AudioClip clip)
     {
         if (audioSource != null && clip != null)
+        {
             audioSource.PlayOneShot(clip);
+            print ("Playing sound: " + clip.name); 
+        }
     }
 
     public int CurrentAmmo  => _currentAmmo;
