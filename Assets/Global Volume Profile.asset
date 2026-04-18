@@ -1,5 +1,69 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!114 &-918445816123289975
+MonoBehaviour:
+  m_ObjectHideFlags: 3
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6dbed17f5f145d64589ad7ae3c637fc3, type: 3}
+  m_Name: PSXEffectSettings
+  m_EditorClassIdentifier: ColbyO.VNTG::ColbyO.VNTG.PSX.PSXEffectSettings
+  active: 1
+  Enabled:
+    m_OverrideState: 0
+    m_Value: 1
+  ShowInSceneView:
+    m_OverrideState: 0
+    m_Value: 0
+  PixelResolution:
+    m_OverrideState: 1
+    m_Value: {x: 1080, y: 1080}
+  ColorPrecision:
+    m_OverrideState: 0
+    m_Value: 2
+  EnableDither:
+    m_OverrideState: 1
+    m_Value: 1
+  DitherMode:
+    m_OverrideState: 1
+    m_Value: 2
+  DitherPattern:
+    m_OverrideState: 1
+    m_Value: 1
+  DitherPixelPerfect:
+    m_OverrideState: 0
+    m_Value: 0
+  DitherScale:
+    m_OverrideState: 1
+    m_Value: 0.408
+  DitherThreshold:
+    m_OverrideState: 0
+    m_Value: 0.1
+  EnableFog:
+    m_OverrideState: 0
+    m_Value: 0
+  FogColor:
+    m_OverrideState: 0
+    m_Value: {r: 0, g: 0, b: 0, a: 1}
+  FogDensity:
+    m_OverrideState: 0
+    m_Value: 1
+  FogNoiseStrength:
+    m_OverrideState: 0
+    m_Value: 0.1
+  FogEdgeSmoothness:
+    m_OverrideState: 0
+    m_Value: 0.5
+  FogNoiseScale:
+    m_OverrideState: 0
+    m_Value: 0.5
+  FogNoiseStart:
+    m_OverrideState: 0
+    m_Value: 0.7
 --- !u!114 &11400000
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -14,6 +78,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Unity.RenderPipelines.Core.Runtime::UnityEngine.Rendering.VolumeProfile
   components:
   - {fileID: 2431457056565175386}
+  - {fileID: -918445816123289975}
 --- !u!114 &2431457056565175386
 MonoBehaviour:
   m_ObjectHideFlags: 3
@@ -32,10 +97,10 @@ MonoBehaviour:
     m_Value: 1
   ShowInSceneView:
     m_OverrideState: 1
-    m_Value: 1
+    m_Value: 0
   ScreenResolution:
     m_OverrideState: 0
-    m_Value: {x: 545.2, y: 480}
+    m_Value: {x: 12, y: 4}
   RefreshRate:
     m_OverrideState: 0
     m_Value: 26
@@ -74,7 +139,7 @@ MonoBehaviour:
     m_Value: 0
   NoiseScale:
     m_OverrideState: 1
-    m_Value: 0.966
+    m_Value: 1
   NoiseRBGOffsetX:
     m_OverrideState: 0
     m_Value: 0.4
@@ -116,7 +181,7 @@ MonoBehaviour:
     m_Value: 0
   ChromaticOffset:
     m_OverrideState: 1
-    m_Value: 0.063
+    m_Value: 0.013
   ChromaticOffsetSpeed:
     m_OverrideState: 0
     m_Value: 0.1
@@ -128,13 +193,13 @@ MonoBehaviour:
     m_Value: 139
   UnsharpAmount:
     m_OverrideState: 0
-    m_Value: 0.71
+    m_Value: 2.82
   UnsharpRadius:
     m_OverrideState: 0
-    m_Value: 1
+    m_Value: 0.21
   UnsharpThreshold:
     m_OverrideState: 0
-    m_Value: 0.02
+    m_Value: 0
   ClampBlack:
     m_OverrideState: 0
     m_Value: 0.054
@@ -152,7 +217,7 @@ MonoBehaviour:
     m_Value: 0.5
   Contrast:
     m_OverrideState: 0
-    m_Value: 0.5
+    m_Value: 1
   Saturation:
     m_OverrideState: 0
     m_Value: 0.5
