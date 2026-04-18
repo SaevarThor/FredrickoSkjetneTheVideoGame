@@ -2,8 +2,6 @@
 using UnityEngine;
 using UnityEngine.AI;
 
-[RequireComponent(typeof(NavMeshAgent))]
-
 public class BaseEnemyAI: MonoBehaviour
 {
     [Header("Detection")]
@@ -36,8 +34,7 @@ public class BaseEnemyAI: MonoBehaviour
     internal State _state = State.Idle;
     internal CombatMove _combatMove = CombatMove.Strafe;
 
-    // References
-    internal NavMeshAgent _agent;
+    
     internal Transform _player;
     internal EnemyShooter _shooter;
 
@@ -49,16 +46,12 @@ public class BaseEnemyAI: MonoBehaviour
 
     public GameObject AlertedVisual;
 
-    private void Awake()
+    public virtual void Awake()
     {
-        _agent = GetComponent<NavMeshAgent>();
+       
         _shooter = GetComponent<EnemyShooter>();
 
-        // We drive movement manually — disable NavMesh auto-braking and steering
-        _agent.updateRotation = false;  // We rotate manually toward player
-        _agent.updateUpAxis = false;
-        _agent.stoppingDistance = 0f;
-        _agent.autoBraking = false;
+        
 
         GameObject playerObj = GameObject.FindGameObjectWithTag("Player");
         if (playerObj != null)
@@ -90,19 +83,14 @@ public class BaseEnemyAI: MonoBehaviour
         _state = State.Combat;
         PickNewStrafe();
 
-        if (_shooter != null)
-            _shooter.SetEngaged(true);
+        
     }
 
     public virtual void ExitCombat()
     {
         AlertedVisual.SetActive(false); // Hide visual indicator when enemy exits combat
         _state = State.Idle;
-        _agent.velocity = Vector3.zero;
-        _agent.ResetPath();
-
-        if (_shooter != null)
-            _shooter.SetEngaged(false);
+       
     }
 
     // -------------------------------------------------------------------------
@@ -110,41 +98,13 @@ public class BaseEnemyAI: MonoBehaviour
     // -------------------------------------------------------------------------
     public virtual void UpdateCombat()
     {
-        float dist = Vector3.Distance(transform.position, _player.position);
-
-        if (dist > losePlayerRadius) { ExitCombat(); return; }
-
-        FacePlayer();
-        DecideCombatMove(dist);
-        ApplyMovement(dist);
+        
     }
 
     // Choose whether to strafe, approach, or retreat based on distance
     public virtual void DecideCombatMove(float dist)
     {
-        if (_shooter._isWindingUp)
-        {
-            _combatMove = CombatMove.StandStill;
-            return;
-        }
-
-        if (dist < tooCloseDistance)
-        {
-            _combatMove = CombatMove.Retreat;
-        }
-        else if (dist > tooFarDistance)
-        {
-            _combatMove = CombatMove.Approach;
-        }
-        else
-        {
-            // In sweet spot — strafe, cycling direction on a timer
-            _combatMove = CombatMove.Strafe;
-
-            _strafeElapsed += Time.deltaTime;
-            if (_strafeElapsed >= _strafeDuration)
-                PickNewStrafe();
-        }
+        
     }
 
     public virtual void ApplyMovement(float dist)

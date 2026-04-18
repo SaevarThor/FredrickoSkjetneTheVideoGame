@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 using UnityEngine.AI;
 
@@ -9,30 +10,46 @@ using UnityEngine.AI;
 [RequireComponent(typeof(NavMeshAgent))]
 public class EnemyAI : BaseEnemyAI
 {
-    
+    // References
+    private NavMeshAgent _agent;
+
+    public override void Awake()
+    {
+        base.Awake();
+        _agent = GetComponent<NavMeshAgent>();
+        // We drive movement manually — disable NavMesh auto-braking and steering
+        _agent.updateRotation = false;  // We rotate manually toward player
+        _agent.updateUpAxis = false;
+        _agent.stoppingDistance = 0f;
+        _agent.autoBraking = false;
+    }
     // -------------------------------------------------------------------------
     // Idle
     // -------------------------------------------------------------------------
     public override void UpdateIdle()
     {
+        Debug.Log(_state);
         if (Vector3.Distance(transform.position, _player.position) <= detectionRadius)
             EnterCombat();
     }
 
+  
     public override void EnterCombat()
     {
-        AlertedVisual.SetActive(true); // Show visual indicator when enemy enters combat
-        _state = State.Combat;
-        PickNewStrafe();
-
+        base.EnterCombat();
+        
+  
+        
         if (_shooter != null)
             _shooter.SetEngaged(true);
+
+        PickNewStrafe();
     }
 
     public override void ExitCombat()
     {
-        AlertedVisual.SetActive(false); // Hide visual indicator when enemy exits combat
-        _state = State.Idle;
+        base.ExitCombat();
+
         _agent.velocity = Vector3.zero;
         _agent.ResetPath();
 
