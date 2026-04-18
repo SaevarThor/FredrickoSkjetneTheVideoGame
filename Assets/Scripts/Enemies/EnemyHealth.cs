@@ -7,6 +7,8 @@ public class EnemyHealth : MonoBehaviour, IDamageable
     public float MaxHealth { get; private set; } = 100f;
     public float CurrentHealth { get; private set; }
 
+    [SerializeField] private GameObject bloodExplosion;
+
     private void Start()
     {
         CurrentHealth = MaxHealth;
@@ -27,6 +29,7 @@ public class EnemyHealth : MonoBehaviour, IDamageable
     private void Die()
     {
         Debug.Log("Enemy died!");
+        Instantiate(bloodExplosion, transform.position, Quaternion.identity);
         Destroy(this.gameObject);
     }
 }

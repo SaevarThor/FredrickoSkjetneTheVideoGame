@@ -41,6 +41,7 @@ CommandLineArgsForDesignTimeEvaluation=-langversion:9.0 -define:UNITY_6000_4_3;U
 
 [sourceFiles]
 Assets/Scripts/
+ AutoDestroy.cs
  BillboardSprite.cs
  CameraShake.cs
  Enemies/
@@ -50,15 +51,21 @@ Assets/Scripts/
   EnemyHealth.cs
   EnemyShooter.cs
  EyeController.cs
+ HealthPickUp.cs
  PlayerHealth.cs
  PlayerMovement.cs
  ProximityShake.cs
  PS2PostProcess.cs
  ReferenceManager.cs
+ RotateMe.cs
+ ShieldPickUp.cs
  ShotGunPelletTrail.cs
  ShotgunShooter.cs
  WeaponSway.cs
-Assets/TutorialInfo/Scripts/Readme.cs
+Assets/
+ scrumbus.cs
+ TutorialInfo/Scripts/Readme.cs
+ WiggleWiggle.cs
 Temp/obj/Assembly-CSharp/.NETStandard,Version=v2.1.AssemblyAttributes.cs
 
 [metadataReferences]

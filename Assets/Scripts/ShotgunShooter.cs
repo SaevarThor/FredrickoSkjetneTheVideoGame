@@ -37,6 +37,7 @@ public class ShotgunShooter : MonoBehaviour
 
     [Header("Impact")]
     [SerializeField] private GameObject bulletHolePrefab;
+    [SerializeField] private GameObject bloodHit; 
     [SerializeField] private LayerMask hitLayers = ~0;
 
     [Header("Pellet Trails")]
@@ -159,9 +160,17 @@ public class ShotgunShooter : MonoBehaviour
         if (Physics.Raycast(ray, out RaycastHit hit, range, hitLayers))
         {
             IDamageable target = hit.collider.GetComponent<IDamageable>();
-            target?.TakeDamage(damage);
 
-            if (bulletHolePrefab != null)
+            if (target != null)
+            {
+                target.TakeDamage(damage);
+
+                if (bloodHit != null)
+                {
+                    GameObject blood = Instantiate(bloodHit, hit.point + hit.normal * 0.01f, Quaternion.LookRotation(hit.normal));
+                    Destroy(blood, 1f);
+                }
+            }else if (bulletHolePrefab != null)
             {
                 GameObject hole = Instantiate(bulletHolePrefab,
                     hit.point + hit.normal * 0.01f,

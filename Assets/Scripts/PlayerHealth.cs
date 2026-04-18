@@ -12,6 +12,10 @@ public class PlayerHealth : MonoBehaviour, IDamageable
     [SerializeField] private TMP_Text healthText;
     [SerializeField] private TMP_Text shieldText;
 
+    [SerializeField] private AudioSource hitSource;
+    [SerializeField] private AudioClip[] hitClips; 
+    [SerializeField] private AudioClip[] shieldHitClips;
+
     private void Start()
     {
         CurrentHealth = 100;
@@ -28,6 +32,15 @@ public class PlayerHealth : MonoBehaviour, IDamageable
         }
 
         CurrentHealth -= amount;
+
+        if (amount > 0 && hitSource != null && hitClips.Length > 0)
+        {
+            hitSource.PlayOneShot(hitClips[Random.Range(0, hitClips.Length)]);
+        }
+        if (amount == 0 && hitSource != null && shieldHitClips.Length > 0)
+        {
+            hitSource.PlayOneShot(shieldHitClips[Random.Range(0, shieldHitClips.Length)]);
+        }
 
         UpdateUI();
 
