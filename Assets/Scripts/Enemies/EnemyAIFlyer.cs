@@ -87,19 +87,14 @@ public class EnemyAIFlyer : EnemyAI
     private void UpdateCircling(float dist)
     {
         _bobTime += Time.deltaTime * bobSpeed;
-        _orbitAngle += Time.deltaTime * (strafeSpeed * _strafeDir);
 
-        // Orbit around player at preferred distance and hover height
-        float targetX = _player.position.x + Mathf.Cos(_orbitAngle) * preferredDistance;
-        float targetZ = _player.position.z + Mathf.Sin(_orbitAngle) * preferredDistance;
+        // Hover above the player
         float targetY = _player.position.y + hoverHeight + Mathf.Sin(_bobTime) * bobAmplitude;
-
-        Vector3 target = new Vector3(targetX, targetY, targetZ);
-        transform.position = Vector3.Lerp(transform.position, target, flySpeed * Time.deltaTime);
+        Vector3 target = new Vector3(transform.position.x, targetY, transform.position.z);
+        transform.position = Vector3.Lerp(transform.position, target, heightLerpSpeed * Time.deltaTime);
 
         FacePlayer();
 
-        // Count down dive cooldown
         _diveCooldown -= Time.deltaTime;
         if (_diveCooldown <= 0f)
             EnterWindup();

@@ -1,4 +1,6 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
+using Unity.Mathematics;
 using UnityEngine;
 using UnityEngine.AI;
 
@@ -48,11 +50,10 @@ public class BaseEnemyAI: MonoBehaviour
 
     public virtual void Awake()
     {
-       
+        
         _shooter = GetComponent<EnemyShooter>();
 
-        
-
+    
         GameObject playerObj = GameObject.FindGameObjectWithTag("Player");
         if (playerObj != null)
             _player = playerObj.transform;
@@ -81,7 +82,7 @@ public class BaseEnemyAI: MonoBehaviour
     {
         AlertedVisual.SetActive(true); // Show visual indicator when enemy enters combat
         _state = State.Combat;
-        PickNewStrafe();
+        
 
         
     }
@@ -129,8 +130,8 @@ public class BaseEnemyAI: MonoBehaviour
     internal void PickNewStrafe()
     {
         // Flip direction and pick a new random duration
-        _strafeDir = Random.value > 0.5f ? 1 : -1;
-        _strafeDuration = Random.Range(strafeMinTime, strafeMaxTime);
+        _strafeDir = UnityEngine.Random.Range(0,100) > 50 ? 1 : -1;
+        _strafeDuration = UnityEngine.Random.Range(strafeMinTime, strafeMaxTime);
         _strafeElapsed = 0f;
     }
 
