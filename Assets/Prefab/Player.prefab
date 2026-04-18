@@ -1123,7 +1123,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5e6c5323dcdbaaa4f9cec26ca2c10f39, type: 3}
   m_Name: 
   m_EditorClassIdentifier: '::'
-  pointsOfInterest: []
+  pointsOfInterest:
+  - {fileID: 0}
+  maxRange: 100
   springStrength: 20
   damping: 0.75
   maxAngularSpeed: 360

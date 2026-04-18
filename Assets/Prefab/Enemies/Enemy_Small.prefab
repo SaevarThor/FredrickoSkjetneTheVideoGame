@@ -355,7 +355,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 62b3b256844192e49bf27225a77307a2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::EnemyHealth
-  MaxHealth: 100
+  MaxHealth: 10
+  Score: 20
   bloodExplosion: {fileID: 2845576331320081517, guid: 05b1eb61edd25834e960e6de09bc32d9, type: 3}
 --- !u!195 &3394777229182014549
 NavMeshAgent:
@@ -415,11 +416,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1fad8aa15ea416f4caa0085af086f31f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::EnemyShooter
-  damage: 35
-  fireRate: 2.2
-  windUpTime: 0.6
+  damage: 5
+  fireRate: 0.8
+  windUpTime: 0.2
   accuracySpread: 0.02
-  burstCount: 1
+  burstCount: 3
   burstDelay: 0.18
   bulletPrefab: {fileID: 9160197140964313040, guid: c0fbdf59c0c93a0499f252efa194d649, type: 3}
   muzzlePoint: {fileID: 4869076118225646095}

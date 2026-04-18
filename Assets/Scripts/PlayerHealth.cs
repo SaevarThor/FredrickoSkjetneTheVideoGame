@@ -3,7 +3,6 @@ using UnityEngine;
 
 public class PlayerHealth : MonoBehaviour, IDamageable
 {
-
     public float MaxShield = 100f;
     public float playerShield = 50f; 
     public float MaxHealth = 200f;

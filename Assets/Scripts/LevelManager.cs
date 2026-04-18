@@ -1,5 +1,6 @@
 using TMPro;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class LevelManager : MonoBehaviour
 {
@@ -9,7 +10,7 @@ public class LevelManager : MonoBehaviour
     public int CurrentLevelIndex = 0;
 
 
-    public float ScoreLevel = 400; 
+    private float ScoreLevel = 800; 
     public TMP_Text LevelStatsText; 
     public GameObject LevelCompleteUI;
 
@@ -34,14 +35,14 @@ public class LevelManager : MonoBehaviour
     {
         Time.timeScale = 1f;
         LevelTimer = 0f; 
-        UnityEngine.SceneManagement.SceneManager.LoadScene(CurrentLevelIndex);
+        SceneManager.LoadScene(CurrentLevelIndex);
     }
 
     public void PlayNextLevel()
     {
         Time.timeScale = 1f;
         LevelTimer = 0f; 
-        UnityEngine.SceneManagement.SceneManager.LoadScene(CurrentLevelIndex + 1);
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
     }   
 
     public void EndLevel()
@@ -56,7 +57,6 @@ public class LevelManager : MonoBehaviour
         LevelStatsText.text = $" Time: {LevelTimer:F2}\n Enemies Killed: {EnemiesKilled}/{EnemiesInLevel} \n Score: {ScoreLevel}";
         LevelCompleteUI.SetActive(true);
 
-
         var levelEntry = new LevelEntry
         {
             LevelIndex = CurrentLevelIndex,
@@ -67,6 +67,7 @@ public class LevelManager : MonoBehaviour
 
         var gameManager = ReferenceManager.Instance.gameManager;
         var oldEntry = gameManager.GetLevelEntry(CurrentLevelIndex);
+        gameManager.Score += Mathf.RoundToInt(ScoreLevel); 
 
         if (oldEntry == null || levelEntry.Score > oldEntry.Score)
         {

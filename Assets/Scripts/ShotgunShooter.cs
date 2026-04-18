@@ -132,6 +132,16 @@ public class ShotgunShooter : MonoBehaviour
         UpdateUI();
     }
 
+    public void ApplyFireRateUpgrade(float newFireRate)
+    {
+        fireRate = fireRate * (1f - newFireRate);
+    }   
+
+    public void ApplyReloadSpeedUpgrade(float newReloadSpeed)
+    {
+        reloadTime = reloadTime * (1f - newReloadSpeed);
+    }
+
     private IEnumerator ShowMuzzleFlash()
     {
         muzzleFlashRenderer.transform.localScale =

@@ -44,11 +44,15 @@ Assets/Scripts/
  AutoDestroy.cs
  BillboardSprite.cs
  CameraShake.cs
+ ChestEntry.cs
+ ChestOpener.cs
+ ChestShop.cs
  EndTheLevel.cs
  Enemies/
   BaseEnemyAI.cs
   EnemyAI.cs
   EnemyAIFlyer.cs
+  EnemyAIFlyingSupport.cs
   EnemyBullet.cs
   EnemyGun.cs
   EnemyHealth.cs
@@ -56,7 +60,9 @@ Assets/Scripts/
  EyeController.cs
  GameManager.cs
  HealthPickUp.cs
+ IntroManager.cs
  LevelManager.cs
+ MainMenuManager.cs
  MuzleLight.cs
  PlayerHealth.cs
  PlayerMovement.cs
@@ -67,6 +73,12 @@ Assets/Scripts/
  ShieldPickUp.cs
  ShotGunPelletTrail.cs
  ShotgunShooter.cs
+ UnlockPanel.cs
+ Upgrade.cs
+ Upgrades/
+  FasterPlayerMovementUpgrade.cs
+  FireRateUpgrade.cs
+  ReloadSpeedUpgrade.cs
  WeaponSway.cs
 Assets/
  scrumbus.cs

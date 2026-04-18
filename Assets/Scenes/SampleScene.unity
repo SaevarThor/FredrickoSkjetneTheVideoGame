@@ -8759,22 +8759,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1764857141}
     m_Modifications:
-    - target: {fileID: 1503954812747081757, guid: de7d557725832a24e845a8f27162e811, type: 3}
-      propertyPath: damage
-      value: 5
-      objectReference: {fileID: 0}
-    - target: {fileID: 1503954812747081757, guid: de7d557725832a24e845a8f27162e811, type: 3}
-      propertyPath: fireRate
-      value: 0.8
-      objectReference: {fileID: 0}
-    - target: {fileID: 1503954812747081757, guid: de7d557725832a24e845a8f27162e811, type: 3}
-      propertyPath: burstCount
-      value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 1503954812747081757, guid: de7d557725832a24e845a8f27162e811, type: 3}
-      propertyPath: windUpTime
-      value: 0.2
-      objectReference: {fileID: 0}
     - target: {fileID: 3473400967163541500, guid: de7d557725832a24e845a8f27162e811, type: 3}
       propertyPath: m_LocalPosition.x
       value: -2.883
@@ -8814,10 +8798,6 @@ PrefabInstance:
     - target: {fileID: 3473400967163541500, guid: de7d557725832a24e845a8f27162e811, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4917957847647383544, guid: de7d557725832a24e845a8f27162e811, type: 3}
-      propertyPath: MaxHealth
-      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 7228506546710759427, guid: de7d557725832a24e845a8f27162e811, type: 3}
       propertyPath: m_Name

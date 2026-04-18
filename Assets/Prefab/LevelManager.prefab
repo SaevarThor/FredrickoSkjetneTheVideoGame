@@ -46,7 +46,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: '::'
   LevelTimer: 0
   EnemiesKilled: 0
-  EnemiesInLevel: 0
+  EnemiesInLevel: 23
   CurrentLevelIndex: 0
   ScoreLevel: 400
   LevelStatsText: {fileID: 0}

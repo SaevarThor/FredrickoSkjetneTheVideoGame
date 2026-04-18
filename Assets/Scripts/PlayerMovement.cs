@@ -30,10 +30,24 @@ public class PlayerMovement : MonoBehaviour
         Cursor.visible = false;
     }
 
+    private void Start()
+    {
+        var referance = ReferenceManager.Instance; 
+        referance.PlayerTransform = this.transform; 
+        referance.gameManager.ApplyActiveUpgrades();
+
+    }
+
     private void Update()
     {
         HandleMouseLook();
         HandleMovement();
+    }
+
+    public void ApplySpeedUpgrade(float speedIncrease)
+    {
+        walkSpeed = walkSpeed * (1f + speedIncrease);
+        sprintSpeed = sprintSpeed * (1f + speedIncrease);
     }
 
     // -------------------------------------------------------------------------
