@@ -893,13 +893,13 @@ MonoBehaviour:
   maxAngularSpeed: 360
   vobbleStartDistance: 5
   vobbleMaxDistance: 2
-  vobbleIntensity: 2
+  vobbleIntensity: 0.5
   vobbleSpeed: 35
-  shakeStartDistance: 10
+  shakeStartDistance: 5
   shakeMaxDistance: 2
-  maxPositionShake: 0.05
-  maxRotationShake: 3
-  shakeSpeed: 12
+  shakeIntensity: 4
+  maxRotationShake: 5
+  shakeSpeed: 24
 --- !u!1 &1384735100
 GameObject:
   m_ObjectHideFlags: 0
@@ -962,13 +962,17 @@ MonoBehaviour:
   reloadTime: 2.5
   recoilKick: 4
   recoilRecoverySpeed: 8
+  shakeTrauma: 0.7
   playerCamera: {fileID: 499070320}
   muzzlePoint: {fileID: 1642485168}
-  muzzleFlash: {fileID: 0}
   audioSource: {fileID: 0}
   fireSound: {fileID: 0}
   reloadSound: {fileID: 0}
   emptyClickSound: {fileID: 0}
+  muzzleFlashRenderer: {fileID: 0}
+  flashFrames: []
+  flashMinScale: 0.25
+  flashMaxScale: 0.45
   bulletHolePrefab: {fileID: 2450288964288674126, guid: ac0380c3d6ce2194d9e3bc5e46e22d9c, type: 3}
   hitLayers:
     serializedVersion: 2
