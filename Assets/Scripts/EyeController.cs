@@ -28,6 +28,13 @@ public class EyeController : MonoBehaviour
     [SerializeField] private float maxRotationShake = 3f;      // How many degrees it rotates
     [SerializeField] private float shakeSpeed = 25f;           // Vibration frequency
 
+   
+    [Header("Idle Spin")]
+    [SerializeField] private float idleSpinSpeed = 45f;        // Degrees per second base speed
+    [SerializeField] private float idleWanderStrength = 30f;   // How much it wanders off axis
+    [SerializeField] private float idleWanderSpeed = 0.5f;     // How slowly it wanders
+
+    private float _idleSpinTime = 0f;
     private Vector3 _originLocalPosition;
     private Quaternion _originLocalRotation;
     private float _angularVelocity = 0f;
@@ -43,6 +50,12 @@ public class EyeController : MonoBehaviour
 
     void Update()
     {
+        Debug.Log(pointsOfInterest.Length);
+        if (pointsOfInterest.Length == 0) {
+            DoIdleSpin();
+            return;
+        }
+
         var currentTransform = transform.position;
         var targetTransform = GetNearestPOI().position;
         var targetAngle = targetTransform - currentTransform;
@@ -112,6 +125,23 @@ public class EyeController : MonoBehaviour
         ) * (shakeIntensity / 1000) * shakeT;
 
         transform.localPosition = _originLocalPosition + posShake;
+    }
+
+    void DoIdleSpin()
+    {
+        _idleSpinTime += Time.deltaTime;
+        _angularVelocity = 0f; // Reset spring so it doesnt lurch when a POI appears
+
+        // Slowly drifting Y rotation
+        float wanderY = Mathf.Sin(_idleSpinTime * idleWanderSpeed) * idleWanderStrength;
+        float currentY = transform.rotation.eulerAngles.y;
+        float newY = currentY + (idleSpinSpeed + wanderY) * Time.deltaTime;
+
+        // Gentle tilt on X and Z for the aimless wandering feel
+        float tiltX = Mathf.Sin(_idleSpinTime * idleWanderSpeed * 1.3f) * 15f;
+        float tiltZ = Mathf.Sin(_idleSpinTime * idleWanderSpeed * 0.7f) * 10f;
+
+        transform.rotation = Quaternion.Euler(tiltX, newY, tiltZ);
     }
 
     Transform GetNearestPOI()
