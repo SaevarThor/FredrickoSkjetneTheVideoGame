@@ -93,7 +93,7 @@ public class EnemyBullet : MonoBehaviour
 
         // Snap bullet mesh to impact point, hide renderer, let trail fade out naturally
         transform.position = hit.point;
-        GetComponent<Renderer>()?.gameObject.SetActive(false);
+        //GetComponent<Renderer>()?.gameObject.SetActive(false);
 
         // Wait for trail to fade before destroying
         StartCoroutine(DestroyAfterTrail());

@@ -49,7 +49,10 @@ Assets/Scripts/
   EnemyGun.cs
   EnemyHealth.cs
   EnemyShooter.cs
+ EyeController.cs
+ PlayerHealth.cs
  PlayerMovement.cs
+ ProximityShake.cs
  PS2PostProcess.cs
  ReferenceManager.cs
  ShotGunPelletTrail.cs

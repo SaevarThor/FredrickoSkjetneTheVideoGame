@@ -39,7 +39,7 @@ public class EnemyShooter : MonoBehaviour
     private float     _fireTimer   = 0f;
     private Transform _player;
 
-    private void Awake()
+    private void Start()
     {
         _player = ReferenceManager.Instance.PlayerTransform;
     }

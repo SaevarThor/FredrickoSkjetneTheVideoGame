@@ -1,4 +1,5 @@
 using System.Collections;
+using TMPro;
 using UnityEngine;
 
 public class ShotgunShooter : MonoBehaviour
@@ -48,6 +49,8 @@ public class ShotgunShooter : MonoBehaviour
     private float _recoilOffset = 0f;
     private WeaponSway _weaponSway;
 
+    [SerializeField] private TMP_Text AmmoText; 
+
     private void Awake()
     {
         _currentAmmo = maxAmmo;
@@ -61,6 +64,9 @@ public class ShotgunShooter : MonoBehaviour
 
         if (muzzleFlashRenderer != null)
             _flashMat = muzzleFlashRenderer.material;
+
+
+        UpdateUI();
     }
 
     private void Update()
@@ -89,6 +95,12 @@ public class ShotgunShooter : MonoBehaviour
             StartCoroutine(Reload());
     }
 
+    private void UpdateUI()
+    {
+        if (AmmoText != null)
+            AmmoText.text = $"{_currentAmmo} / {maxAmmo}";
+    }
+
     private void Shoot()
     {
         _nextFireTime = Time.time + fireRate;
@@ -114,6 +126,8 @@ public class ShotgunShooter : MonoBehaviour
 
         if (_currentAmmo <= 0)
             StartCoroutine(Reload());
+
+        UpdateUI();
     }
 
     private IEnumerator ShowMuzzleFlash()

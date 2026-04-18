@@ -14,10 +14,11 @@ GameObject:
   - component: {fileID: 8232290694130006216}
   - component: {fileID: 4377731051775864022}
   - component: {fileID: 157929636689130908}
+  - component: {fileID: 5902217332342858979}
   - component: {fileID: 5530333647060799227}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Player
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -171,6 +172,23 @@ MonoBehaviour:
   holdTime: 0.12
   fadeTime: 0.25
   trailMaterial: {fileID: 0}
+--- !u!114 &5902217332342858979
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 954616794397752651}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 828f12048e4e31f4ba1fcb1d99d719ba, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: '::'
+  playerShield: 50
+  MaxHealth: 100
+  CurrentHealth: 0
+  healthText: {fileID: 0}
+  shieldText: {fileID: 0}
 --- !u!82 &5530333647060799227
 AudioSource:
   m_ObjectHideFlags: 0
