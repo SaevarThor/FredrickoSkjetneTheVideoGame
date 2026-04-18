@@ -148,6 +148,7 @@ MonoBehaviour:
   - {fileID: 1944084236, guid: fd74cf682bc71224c887d9a2ed5c5ac0, type: 3}
   flashMinScale: 0.25
   flashMaxScale: 0.45
+  muzzleFlashLight: {fileID: 3387018047044480777}
   bulletHolePrefab: {fileID: 2450288964288674126, guid: ac0380c3d6ce2194d9e3bc5e46e22d9c, type: 3}
   bloodHit: {fileID: 7017870152517531520, guid: 2ce587da2db0a704db1298d7eb27dff7, type: 3}
   hitLayers:
@@ -536,6 +537,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2f48c2686b49c124b9dff1392fba243f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: '::'
+  lightDuration: 0.1
 --- !u!1 &2335626422137810463
 GameObject:
   m_ObjectHideFlags: 0

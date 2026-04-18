@@ -33,6 +33,7 @@ public class ShotgunShooter : MonoBehaviour
     [SerializeField] private Sprite[] flashFrames;
     [SerializeField] private float flashMinScale = 0.25f;
     [SerializeField] private float flashMaxScale = 0.45f;
+    [SerializeField] private MuzleLight muzzleFlashLight;
     private Material _flashMat;
 
     [Header("Impact")]
@@ -137,6 +138,8 @@ public class ShotgunShooter : MonoBehaviour
             Vector3.one * Random.Range(flashMinScale, flashMaxScale);
         muzzleFlashRenderer.transform.localRotation =
             Quaternion.Euler(0f, 0f, Random.Range(0f, 360f));
+
+        muzzleFlashLight.Flash();
 
         foreach (Sprite frame in flashFrames)
         {
