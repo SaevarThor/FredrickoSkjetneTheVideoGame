@@ -51,6 +51,7 @@ Assets/Scripts/
   EnemyHealth.cs
   EnemyShooter.cs
  EyeController.cs
+ GameManager.cs
  HealthPickUp.cs
  MuzleLight.cs
  PlayerHealth.cs
