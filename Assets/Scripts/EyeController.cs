@@ -5,9 +5,9 @@ using UnityEngine.UIElements;
 
 public class EyeController : MonoBehaviour
 {
-  [Header("Points of Interest")]
+    [Header("Points of Interest")]
     public Transform[] pointsOfInterest;
- 
+    [SerializeField] private float maxRange = 100f;
 
     [Header("Spring Settings")]
     [SerializeField] private float springStrength = 10f;
@@ -58,6 +58,11 @@ public class EyeController : MonoBehaviour
 
         var currentTransform = transform.position;
         var targetTransform = GetNearestPOI().position;
+        if (Vector3.Distance(currentTransform, targetTransform) > maxRange) {
+            DoIdleSpin();
+            return;
+        }
+
         var targetAngle = targetTransform - currentTransform;
        
 
