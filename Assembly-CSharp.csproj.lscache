@@ -40,9 +40,13 @@ CommandLineArgsForDesignTimeEvaluation=-langversion:9.0 -define:UNITY_6000_4_3;U
 /warnaserror+:NU1605
 
 [sourceFiles]
-Assets/
- Scripts/PlayerMovement.cs
- TutorialInfo/Scripts/Readme.cs
+Assets/Scripts/
+ PlayerMovement.cs
+ PS2PostProcess.cs
+ ShotGunPelletTrail.cs
+ ShotgunShooter.cs
+ WeaponSway.cs
+Assets/TutorialInfo/Scripts/Readme.cs
 Temp/obj/Assembly-CSharp/.NETStandard,Version=v2.1.AssemblyAttributes.cs
 
 [metadataReferences]
