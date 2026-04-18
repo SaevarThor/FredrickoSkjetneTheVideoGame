@@ -7,6 +7,10 @@ public class EnemyHealth : MonoBehaviour, IDamageable
     public float MaxHealth = 100f;
     public float CurrentHealth { get; private set; }
 
+    public float Score = 20f; 
+
+    private bool isDead = false; 
+
     [SerializeField] private GameObject bloodExplosion;
 
     private void Start()
@@ -16,6 +20,7 @@ public class EnemyHealth : MonoBehaviour, IDamageable
 
     public void TakeDamage(float amount)
     {
+        if (isDead) return; 
         // Implementation for taking damage
         CurrentHealth -= amount;
         if (CurrentHealth <= 0)
@@ -28,8 +33,13 @@ public class EnemyHealth : MonoBehaviour, IDamageable
 
     private void Die()
     {
-        Debug.Log("Enemy died!");
+        isDead = true; 
         Instantiate(bloodExplosion, transform.position, Quaternion.identity);
+
+        GameObject levelManager = GameObject.FindGameObjectWithTag("LevelManager");
+        var levelManagerScript = levelManager.GetComponent<LevelManager>();
+        levelManagerScript.EnemyKilled(Score);
+
         Destroy(this.gameObject);
     }
 }

@@ -5,6 +5,7 @@ TagManager:
   serializedVersion: 3
   tags:
   - Eye_PointOfInterest
+  - LevelManager
   layers:
   - Default
   - TransparentFX

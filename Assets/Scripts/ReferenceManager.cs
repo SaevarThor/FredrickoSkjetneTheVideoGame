@@ -6,6 +6,8 @@ public class ReferenceManager : MonoBehaviour
 
     public Camera PlayerCamera;
     public Transform PlayerTransform;
+    public GameManager gameManager;
+
 
     private void Awake()
     {
@@ -18,4 +20,7 @@ public class ReferenceManager : MonoBehaviour
         Instance = this;
         DontDestroyOnLoad(gameObject);
     }
+
+
+    
 }

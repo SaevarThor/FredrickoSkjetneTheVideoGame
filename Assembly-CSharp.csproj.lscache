@@ -44,8 +44,11 @@ Assets/Scripts/
  AutoDestroy.cs
  BillboardSprite.cs
  CameraShake.cs
+ EndTheLevel.cs
  Enemies/
+  BaseEnemyAI.cs
   EnemyAI.cs
+  EnemyAIFlyer.cs
   EnemyBullet.cs
   EnemyGun.cs
   EnemyHealth.cs
@@ -53,6 +56,7 @@ Assets/Scripts/
  EyeController.cs
  GameManager.cs
  HealthPickUp.cs
+ LevelManager.cs
  MuzleLight.cs
  PlayerHealth.cs
  PlayerMovement.cs
