@@ -43,8 +43,15 @@ CommandLineArgsForDesignTimeEvaluation=-langversion:9.0 -define:UNITY_6000_4_3;U
 Assets/Scripts/
  BillboardSprite.cs
  CameraShake.cs
+ Enemies/
+  EnemyAI.cs
+  EnemyBullet.cs
+  EnemyGun.cs
+  EnemyHealth.cs
+  EnemyShooter.cs
  PlayerMovement.cs
  PS2PostProcess.cs
+ ReferenceManager.cs
  ShotGunPelletTrail.cs
  ShotgunShooter.cs
  WeaponSway.cs
@@ -358,6 +365,8 @@ Library/ScriptAssemblies/
  UnityEditor.UI.dll
  UnityEngine.UI.dll
 Temp/bin/Debug/
+ ColbyO.VNTG.dll
+ ColbyO.VNTG.Editor.dll
  Unity.AI.Navigation.dll
  Unity.AI.Navigation.Editor.ConversionSystem.dll
  Unity.AI.Navigation.Editor.dll

@@ -376,6 +376,8 @@ Library/ScriptAssemblies/
  UnityEngine.UI.dll
 Temp/bin/Debug/
  Assembly-CSharp.dll
+ ColbyO.VNTG.dll
+ ColbyO.VNTG.Editor.dll
  Unity.AI.Navigation.dll
  Unity.AI.Navigation.Editor.ConversionSystem.dll
  Unity.AI.Navigation.Editor.dll
