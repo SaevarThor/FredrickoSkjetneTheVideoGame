@@ -149,7 +149,7 @@ MonoBehaviour:
   flashMinScale: 0.25
   flashMaxScale: 0.45
   bulletHolePrefab: {fileID: 2450288964288674126, guid: ac0380c3d6ce2194d9e3bc5e46e22d9c, type: 3}
-  bloodHit: {fileID: 0}
+  bloodHit: {fileID: 7017870152517531520, guid: 2ce587da2db0a704db1298d7eb27dff7, type: 3}
   hitLayers:
     serializedVersion: 2
     m_Bits: 4294967295
