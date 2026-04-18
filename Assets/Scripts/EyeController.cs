@@ -38,6 +38,7 @@ public class EyeController : MonoBehaviour
     void Start()
     {
         _currentRotation = transform.rotation;
+        _originLocalPosition = transform.localPosition;
     }
 
     void Update()
