@@ -173,6 +173,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: '::'
   healAmount: 25
+  pickupSound: {fileID: 8300000, guid: 63f463a20795a144fa06e7ddfba6c73f, type: 3}
 --- !u!54 &5084419845314451121
 Rigidbody:
   m_ObjectHideFlags: 0

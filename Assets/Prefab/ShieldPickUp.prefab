@@ -200,3 +200,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: '::'
   shieldAmount: 25
+  pickupSound: {fileID: 8300000, guid: c022a7d74a1cd4a46a565b803510ce9a, type: 3}

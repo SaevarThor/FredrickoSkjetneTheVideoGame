@@ -2,6 +2,7 @@ using UnityEngine;
 
 public class UpgradePickUp : MonoBehaviour
 {
+    [SerializeField] private AudioClip pickupSound;
     public enum UpgradeType
     {
         common, 
@@ -16,6 +17,8 @@ public class UpgradePickUp : MonoBehaviour
     {
         if (other.CompareTag("Player"))
         {
+            other.GetComponent<AudioSource>().PlayOneShot(pickupSound);
+
             var upgrade = GetUpgrade();
 
             ReferenceManager.Instance.mManager.UpdateObjective(upgrade.UpgradeName, upgrade.UpgradeDescription);
