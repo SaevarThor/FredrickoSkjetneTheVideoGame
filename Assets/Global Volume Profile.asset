@@ -45,7 +45,7 @@ MonoBehaviour:
     m_Value: 0.1
   EnableFog:
     m_OverrideState: 1
-    m_Value: 1
+    m_Value: 0
   FogColor:
     m_OverrideState: 1
     m_Value: {r: 0.5, g: 0.15062271, b: 0.054245293, a: 1}

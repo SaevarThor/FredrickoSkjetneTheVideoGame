@@ -579,7 +579,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 31321ba15b8f8eb4c954353edc038b1d, type: 2}
+  - {fileID: 2100000, guid: c88ce7a13283e0c46b790f80ba1d0365, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -1278,7 +1278,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 31321ba15b8f8eb4c954353edc038b1d, type: 2}
+  - {fileID: 2100000, guid: c88ce7a13283e0c46b790f80ba1d0365, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -1434,7 +1434,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 31321ba15b8f8eb4c954353edc038b1d, type: 2}
+  - {fileID: 2100000, guid: c88ce7a13283e0c46b790f80ba1d0365, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -1466,6 +1466,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 2210686867607065899}
     m_Modifications:
+    - target: {fileID: 112894286661490635, guid: 18fd44ec8e06633fc94d4ab833996881, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: 9218f840cd8566d4284d1de087d03254, type: 2}
     - target: {fileID: 5936678706431891514, guid: 18fd44ec8e06633fc94d4ab833996881, type: 3}
       propertyPath: m_LocalScale.x
       value: 0.1
@@ -1522,6 +1526,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: DoubleBarrelShotgunfbx
       objectReference: {fileID: 0}
+    - target: {fileID: 6815676408780415361, guid: 18fd44ec8e06633fc94d4ab833996881, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: 9218f840cd8566d4284d1de087d03254, type: 2}
+    - target: {fileID: 7826143512951647105, guid: 18fd44ec8e06633fc94d4ab833996881, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: 9218f840cd8566d4284d1de087d03254, type: 2}
     - target: {fileID: 9026050636710836500, guid: 18fd44ec8e06633fc94d4ab833996881, type: 3}
       propertyPath: m_Enabled
       value: 0
