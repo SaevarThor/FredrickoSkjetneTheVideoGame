@@ -37,10 +37,9 @@ public class PlayerHealth : MonoBehaviour, IDamageable
             hitSource.PlayOneShot(hitClips[Random.Range(0, hitClips.Length)]);
             CameraShake.Instance.Shake(10);
         }
-        if (amount == 0)
+        if (amount == 0 && hitSource != null && shieldHitClips.Length > 0)
         {
             hitSource.PlayOneShot(shieldHitClips[Random.Range(0, shieldHitClips.Length)]);
-            print ("ssshhh");
         }
 
         UpdateUI();

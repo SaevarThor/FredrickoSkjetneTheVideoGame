@@ -4387,6 +4387,7 @@ GameObject:
   - component: {fileID: 443048331}
   - component: {fileID: 443048330}
   - component: {fileID: 443048329}
+  - component: {fileID: 443048332}
   m_Layer: 0
   m_Name: f (94)
   m_TagString: Untagged
@@ -4487,6 +4488,23 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 443048327}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!114 &443048332
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 443048327}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5d163e8bdee33544e8022cd0107685c8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::MovingPlatform
+  axis: 0
+  distance: 80
+  speed: 0.2
+  phaseOffset: 0
+  smoothstep: 1
 --- !u!1001 &459103154
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -9140,6 +9158,7 @@ GameObject:
   - component: {fileID: 986851209}
   - component: {fileID: 986851208}
   - component: {fileID: 986851207}
+  - component: {fileID: 986851210}
   m_Layer: 0
   m_Name: f (92)
   m_TagString: Untagged
@@ -9240,6 +9259,23 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 986851205}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!114 &986851210
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 986851205}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5d163e8bdee33544e8022cd0107685c8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::MovingPlatform
+  axis: 0
+  distance: 5
+  speed: 0.7
+  phaseOffset: 0
+  smoothstep: 1
 --- !u!4 &993746936 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 5804426294164245446, guid: e0c43fc324909424684ff7b1f8e2a75b, type: 3}
@@ -12030,6 +12066,7 @@ GameObject:
   - component: {fileID: 1358197327}
   - component: {fileID: 1358197326}
   - component: {fileID: 1358197325}
+  - component: {fileID: 1358197328}
   m_Layer: 0
   m_Name: f (88)
   m_TagString: Untagged
@@ -12130,6 +12167,23 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1358197323}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!114 &1358197328
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1358197323}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5d163e8bdee33544e8022cd0107685c8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::MovingPlatform
+  axis: 0
+  distance: 3
+  speed: 0.3
+  phaseOffset: 0
+  smoothstep: 1
 --- !u!1001 &1359832693
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -12270,6 +12324,7 @@ GameObject:
   - component: {fileID: 1383409286}
   - component: {fileID: 1383409285}
   - component: {fileID: 1383409284}
+  - component: {fileID: 1383409287}
   m_Layer: 0
   m_Name: f (85)
   m_TagString: Untagged
@@ -12370,6 +12425,23 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1383409282}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!114 &1383409287
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1383409282}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5d163e8bdee33544e8022cd0107685c8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: '::'
+  axis: 0
+  distance: 1
+  speed: 0.05
+  phaseOffset: 0
+  smoothstep: 1
 --- !u!1001 &1387868696
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -13797,6 +13869,7 @@ GameObject:
   - component: {fileID: 1580783819}
   - component: {fileID: 1580783818}
   - component: {fileID: 1580783817}
+  - component: {fileID: 1580783820}
   m_Layer: 0
   m_Name: f (86)
   m_TagString: Untagged
@@ -13897,6 +13970,23 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1580783815}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!114 &1580783820
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1580783815}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5d163e8bdee33544e8022cd0107685c8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::MovingPlatform
+  axis: 0
+  distance: 1.5
+  speed: 0.1
+  phaseOffset: 0.2
+  smoothstep: 1
 --- !u!4 &1590212997 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 5804426294164245446, guid: e0c43fc324909424684ff7b1f8e2a75b, type: 3}
@@ -14266,6 +14356,7 @@ GameObject:
   - component: {fileID: 1632769410}
   - component: {fileID: 1632769409}
   - component: {fileID: 1632769408}
+  - component: {fileID: 1632769411}
   m_Layer: 0
   m_Name: f (89)
   m_TagString: Untagged
@@ -14366,6 +14457,23 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1632769406}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!114 &1632769411
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1632769406}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5d163e8bdee33544e8022cd0107685c8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::MovingPlatform
+  axis: 0
+  distance: 3.5
+  speed: 0.4
+  phaseOffset: 0
+  smoothstep: 1
 --- !u!4 &1639380025 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 7813050403505578572, guid: 90aaabfc948a3cb41bcb38f5b3e5771c, type: 3}
@@ -14449,6 +14557,7 @@ GameObject:
   - component: {fileID: 1664300157}
   - component: {fileID: 1664300156}
   - component: {fileID: 1664300155}
+  - component: {fileID: 1664300158}
   m_Layer: 0
   m_Name: f (91)
   m_TagString: Untagged
@@ -14549,6 +14658,23 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1664300153}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!114 &1664300158
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1664300153}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5d163e8bdee33544e8022cd0107685c8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::MovingPlatform
+  axis: 0
+  distance: 4.5
+  speed: 0.6
+  phaseOffset: 0
+  smoothstep: 1
 --- !u!1001 &1666510135
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -15245,6 +15371,7 @@ GameObject:
   - component: {fileID: 1743832531}
   - component: {fileID: 1743832530}
   - component: {fileID: 1743832529}
+  - component: {fileID: 1743832532}
   m_Layer: 0
   m_Name: f (90)
   m_TagString: Untagged
@@ -15345,6 +15472,23 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1743832527}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!114 &1743832532
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1743832527}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5d163e8bdee33544e8022cd0107685c8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::MovingPlatform
+  axis: 0
+  distance: 4
+  speed: 0.5
+  phaseOffset: 0
+  smoothstep: 1
 --- !u!4 &1753225875 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 5804426294164245446, guid: e0c43fc324909424684ff7b1f8e2a75b, type: 3}
@@ -16423,6 +16567,7 @@ GameObject:
   - component: {fileID: 1881802311}
   - component: {fileID: 1881802310}
   - component: {fileID: 1881802309}
+  - component: {fileID: 1881802312}
   m_Layer: 0
   m_Name: f (87)
   m_TagString: Untagged
@@ -16523,6 +16668,23 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1881802307}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!114 &1881802312
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1881802307}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5d163e8bdee33544e8022cd0107685c8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::MovingPlatform
+  axis: 0
+  distance: 2.5
+  speed: 0.2
+  phaseOffset: 0
+  smoothstep: 1
 --- !u!1001 &1888952931
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -18104,6 +18266,7 @@ GameObject:
   - component: {fileID: 2106234077}
   - component: {fileID: 2106234076}
   - component: {fileID: 2106234075}
+  - component: {fileID: 2106234078}
   m_Layer: 0
   m_Name: f (93)
   m_TagString: Untagged
@@ -18204,6 +18367,23 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2106234073}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!114 &2106234078
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2106234073}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5d163e8bdee33544e8022cd0107685c8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::MovingPlatform
+  axis: 0
+  distance: 9
+  speed: 0.8
+  phaseOffset: 0
+  smoothstep: 1
 --- !u!1 &2111744083
 GameObject:
   m_ObjectHideFlags: 0

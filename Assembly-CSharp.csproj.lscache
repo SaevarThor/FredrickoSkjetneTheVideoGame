@@ -79,6 +79,7 @@ Assets/Scripts/
  LevelManager.cs
  MainMenuManager.cs
  MessagingManager.cs
+ MovingPlatform.cs
  MusicManager.cs
  MuzleLight.cs
  PlayerHealth.cs
