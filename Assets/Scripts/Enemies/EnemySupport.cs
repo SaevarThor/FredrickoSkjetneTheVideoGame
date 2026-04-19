@@ -6,16 +6,19 @@ public class EnemySupport: MonoBehaviour
 {
 	private EnemyAIFlyingSupport Ai;
     public ParticleSystem particle;
+    private Transform _currentAlly;
     
     private void Awake()
     {
         Ai = GetComponent<EnemyAIFlyingSupport>();
+        _currentAlly = Ai._currentAlly;
         
     }
 
     // Update is called once per frame
     void Update()
 	{
+        _currentAlly = Ai._currentAlly;
         if (Ai._currentAlly != null)
         {
             var enemy = Ai._currentAlly.GetComponent<EnemyHealth>();
@@ -46,7 +49,7 @@ public class EnemySupport: MonoBehaviour
 
     private void OnDestroy()
     {
-        if (Ai._currentAlly != null)
+        if (_currentAlly != null)
         {
             var enemy = Ai._currentAlly.GetComponent<EnemyHealth>();
             if (enemy != null)

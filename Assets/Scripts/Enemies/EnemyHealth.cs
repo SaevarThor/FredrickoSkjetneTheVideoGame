@@ -14,7 +14,14 @@ public class EnemyHealth : MonoBehaviour, IDamageable
     private bool isInvulnerable = false;
 
     [SerializeField] private GameObject bloodExplosion;
+    [SerializeField] private GameObject shieldVisuals;
 
+    private void Awake()
+    {
+        if (shieldVisuals != null) {
+            shieldVisuals.GetComponent<SpriteRenderer>().enabled = false;
+        }
+    }
     private void Start()
     {
         CurrentHealth = MaxHealth;
@@ -33,9 +40,20 @@ public class EnemyHealth : MonoBehaviour, IDamageable
         }
     }
 
-    public void MakeInvulnerable() { isInvulnerable = true; }
+    
+    public void MakeInvulnerable()
+    {
+        isInvulnerable = true;
+        shieldVisuals.GetComponent<SpriteRenderer>().enabled = true;
+    }
 
-    public void MakeVulnerable() {  isInvulnerable = false; }
+    public void MakeVulnerable()
+    {
+        shieldVisuals.GetComponent<SpriteRenderer>().enabled = false;
+        isInvulnerable = false;
+    }
+
+
 
 
     private void Die()
