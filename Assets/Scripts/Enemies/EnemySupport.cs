@@ -16,27 +16,31 @@ public class EnemySupport: MonoBehaviour
     // Update is called once per frame
     void Update()
 	{
-        
-        var enemy = Ai._currentAlly.GetComponent<EnemyHealth>();
-        switch (Ai._flyState) { 
-            case EnemyAIFlyingSupport.FlyState.Protecting:
-            
-            if (enemy != null) {
-                enemy.MakeInvulnerable();
-            }
-            if (!particle.isPlaying)
+        if (Ai._currentAlly != null)
+        {
+            var enemy = Ai._currentAlly.GetComponent<EnemyHealth>();
+            switch (Ai._flyState)
             {
-                particle.Play();
+                case EnemyAIFlyingSupport.FlyState.Protecting:
+
+                    if (enemy != null)
+                    {
+                        enemy.MakeInvulnerable();
+                    }
+                    if (!particle.isPlaying)
+                    {
+                        particle.Play();
+                    }
+                    break;
+
+                default:
+                    particle.Stop();
+                    if (enemy != null)
+                    {
+                        enemy.MakeVulnerable();
+                    }
+                    break;
             }
-            break;
-            
-            default:
-            particle.Stop();
-            if (enemy != null)
-            {
-                enemy.MakeVulnerable();
-            }
-            break;
         }
     }
 
