@@ -726,7 +726,7 @@ PrefabInstance:
       objectReference: {fileID: 1018668290}
     - target: {fileID: 8127044481830305387, guid: 855fe730c280b1b46bd4688128df498f, type: 3}
       propertyPath: m_fontSize
-      value: 34.55
+      value: 32.95
       objectReference: {fileID: 0}
     - target: {fileID: 8127044481830305387, guid: 855fe730c280b1b46bd4688128df498f, type: 3}
       propertyPath: m_enableAutoSizing
@@ -9374,10 +9374,6 @@ PrefabInstance:
     - target: {fileID: 267264156485624766, guid: 4133b006d54d6834d901c95cc334e76b, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3120012476396723413, guid: 4133b006d54d6834d901c95cc334e76b, type: 3}
-      propertyPath: allySearchRadius
-      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 4680897764415261358, guid: 4133b006d54d6834d901c95cc334e76b, type: 3}
       propertyPath: m_Name
