@@ -1,3 +1,4 @@
+
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
@@ -34,22 +35,20 @@ public class GameManager : MonoBehaviour
             CommonUpgrades.Add(new ReloadSpeedUpgrade(0.1f));
             CommonUpgrades.Add(new ReloadSpeedUpgrade(0.2f));
             CommonUpgrades.Add(new LargerMagUpgrade(1));
-            //CommonUpgrades.Add(new DamageUpgrade(5f));
-            //CommonUpgrades.Add(new SpeedUpgrade(0.1f));
+            CommonUpgrades.Add(new DamageBonusUpgrade(0.1f)); 
+            CommonUpgrades.Add(new FasterPlayerMovementUpgrade(0.05f)); 
     }
 
     private void GenerateRareUpgrades()
     {
-
         RareUpgrades.Add(new FireRateUpgrade(0.3f));
         RareUpgrades.Add(new FireRateUpgrade(0.4f));
         RareUpgrades.Add(new ReloadSpeedUpgrade(0.4f));
         RareUpgrades.Add(new ReloadSpeedUpgrade(0.5f));
-        RareUpgrades.Add(new FasterPlayerMovementUpgrade(0.3f));
-        RareUpgrades.Add(new FasterPlayerMovementUpgrade(0.4f));
+        RareUpgrades.Add(new FasterPlayerMovementUpgrade(0.1f));
+        RareUpgrades.Add(new FasterPlayerMovementUpgrade(0.2f));
         RareUpgrades.Add(new LargerMagUpgrade(3));
-        //RareUpgrades.Add(new DamageUpgrade(10f));
-        //RareUpgrades.Add(new SpeedUpgrade(0.2f));
+        RareUpgrades.Add(new DamageBonusUpgrade(0.3f));
     }
     
     private void GenerateEpicUpgrades()
@@ -61,8 +60,15 @@ public class GameManager : MonoBehaviour
         EpicUpgrades.Add(new FasterPlayerMovementUpgrade(0.3f));
         EpicUpgrades.Add(new FasterPlayerMovementUpgrade(0.4f));
         EpicUpgrades.Add(new LargerMagUpgrade(8)); 
-        //EpicUpgrades.Add(new DamageUpgrade(20f));
-        //EpicUpgrades.Add(new SpeedUpgrade(0.3f));
+        EpicUpgrades.Add(new DamageBonusUpgrade(0.5f)); 
+    }
+
+    [ContextMenu("Test Upgrade")]
+    public void TestUpgrade()
+    {
+        var up = new LargerMagUpgrade(8); 
+
+        up.ApplyUpgrade();
     }
 
     public Upgrade GetCommonUpgrade()

@@ -38,7 +38,6 @@ public class PlayerMovement : MonoBehaviour
         var referance = ReferenceManager.Instance; 
         referance.PlayerTransform = this.transform; 
         referance.gameManager.ApplyActiveUpgrades();
-
     }
 
     private void Update()

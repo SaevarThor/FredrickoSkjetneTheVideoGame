@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.InputSystem.Interactions;
 
 public class LargerMagUpgrade : Upgrade
 {
@@ -10,13 +11,14 @@ public class LargerMagUpgrade : Upgrade
 
     public LargerMagUpgrade (float amount)
     {
-        UpgradeDescription = $"{MagSizeUpgrade} more shots in a mag"; 
         MagSizeUpgrade = amount; 
-        _shotgunShooter = GameObject.FindWithTag("Player").GetComponent<ShotgunShooter>();
+        UpgradeDescription = $"{MagSizeUpgrade} more shots in a mag"; 
     }
 
     public override void ApplyUpgrade()
     {
+        _shotgunShooter = GameObject.FindWithTag("Player").GetComponent<ShotgunShooter>();
+        Debug.Log("Adding mag size upgrade"); 
         _shotgunShooter.ApplyMagSizeUpgrade(MagSizeUpgrade); 
     }
 }

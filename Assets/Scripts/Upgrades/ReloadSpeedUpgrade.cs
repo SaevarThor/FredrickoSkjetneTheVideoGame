@@ -12,12 +12,12 @@ public class ReloadSpeedUpgrade : Upgrade
     public ReloadSpeedUpgrade(float reloadSpeedIncrease)
     {
         UpgradeDescription = $"Increases your reload speed by {reloadSpeedIncrease * 100}%";
-        _shotgunShooter = GameObject.FindWithTag("Player").GetComponent<ShotgunShooter>();
         _reloadSpeedIncrease = reloadSpeedIncrease;
     }
 
     public override void ApplyUpgrade()
     {
+        _shotgunShooter = GameObject.FindWithTag("Player").GetComponent<ShotgunShooter>();
         _shotgunShooter.ApplyReloadSpeedUpgrade(_reloadSpeedIncrease);
     }
 }

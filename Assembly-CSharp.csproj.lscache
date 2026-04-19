@@ -76,6 +76,7 @@ Assets/Scripts/
  IntroManager.cs
  LevelManager.cs
  MainMenuManager.cs
+ MusicManager.cs
  MuzleLight.cs
  PlayerHealth.cs
  PlayerMovement.cs
@@ -89,6 +90,7 @@ Assets/Scripts/
  UnlockPanel.cs
  Upgrade.cs
  Upgrades/
+  DamageBonusUpgrade.cs
   FasterPlayerMovementUpgrade.cs
   FireRateUpgrade.cs
   LargerMagUpgrade.cs

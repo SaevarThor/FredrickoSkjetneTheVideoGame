@@ -100,11 +100,6 @@ public class ShotgunShooter : MonoBehaviour
     {
         HandleInput();
         RecoverRecoil();
-
-        if (_isCharging)
-        {
-           // _weaponSway.ApplyChargedFirePunch();
-        }
     }
 
     private void HandleInput()
@@ -378,7 +373,12 @@ public class ShotgunShooter : MonoBehaviour
     // -------------------------------------------------------------------------
     public void ApplyFireRateUpgrade(float newFireRate)    => fireRate   = fireRate   * (1f - newFireRate);
     public void ApplyReloadSpeedUpgrade(float newReload)   => reloadTime = reloadTime * (1f - newReload);
-    public void ApplyMagSizeUpgrade(float additionalShots) => maxAmmo   += Mathf.RoundToInt(additionalShots);
+    public void ApplyDamageBuff(float buff)                => damage     = damage * (1f - buff);   
+    public void ApplyMagSizeUpgrade(float additionalShots)
+    {
+        maxAmmo   += Mathf.RoundToInt(additionalShots);
+        UpdateUI();
+    } 
 
     // -------------------------------------------------------------------------
     // Helpers
@@ -410,10 +410,6 @@ public class ShotgunShooter : MonoBehaviour
     {
         audioSource.Stop();
     }
-
-    public int CurrentAmmo   => _currentAmmo;
-    public int MaxAmmo       => maxAmmo;
-    public bool IsReloading  => _isReloading;
 }
 
 public interface IDamageable
