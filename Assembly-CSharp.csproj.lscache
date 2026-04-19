@@ -78,6 +78,7 @@ Assets/Scripts/
  IntroManager.cs
  LevelManager.cs
  MainMenuManager.cs
+ MessagingManager.cs
  MusicManager.cs
  MuzleLight.cs
  PlayerHealth.cs
@@ -91,6 +92,7 @@ Assets/Scripts/
  ShotgunShooter.cs
  UnlockPanel.cs
  Upgrade.cs
+ UpgradePickUp.cs
  Upgrades/
   DamageBonusUpgrade.cs
   FasterPlayerMovementUpgrade.cs

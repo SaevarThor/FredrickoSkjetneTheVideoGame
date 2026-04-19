@@ -216,7 +216,12 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 668f930423a28364eaea620bf12f7848, type: 3}
   - {fileID: 8300000, guid: 1ede58bf8181ef2468d8223ae85e434e, type: 3}
   shieldHitClips:
-  - {fileID: 8300000, guid: 033b58581cb776f47892fc3e4e7e26b7, type: 3}
+  - {fileID: 8300000, guid: 9df06157e5ad8674785caaddb37a0b92, type: 3}
+  - {fileID: 8300000, guid: a1596d343cad8dd4b99916fa5157b15d, type: 3}
+  - {fileID: 8300000, guid: 05a1a531febb3264a85608091c551771, type: 3}
+  - {fileID: 8300000, guid: 3a869076e3edb924e857630697ae7003, type: 3}
+  - {fileID: 8300000, guid: 4a1fcb4d9fc3045458422e0d267e99db, type: 3}
+  - {fileID: 8300000, guid: 684d79beefbf02b478725ac1d2beed1c, type: 3}
 --- !u!82 &5530333647060799227
 AudioSource:
   m_ObjectHideFlags: 0

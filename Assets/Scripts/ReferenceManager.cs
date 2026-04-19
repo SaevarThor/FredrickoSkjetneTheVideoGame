@@ -8,6 +8,8 @@ public class ReferenceManager : MonoBehaviour
     public Transform PlayerTransform;
     public GameManager gameManager;
 
+    public MessagingManager mManager;
+
 
     private void Awake()
     {

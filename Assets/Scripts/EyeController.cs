@@ -46,6 +46,19 @@ public class EyeController : MonoBehaviour
     {
         _currentRotation = transform.rotation;
         _originLocalPosition = transform.localPosition;
+
+
+        var objects = GameObject.FindGameObjectsWithTag("Eye_PointOfInterest"); 
+        Transform[] t = new Transform[objects.Length];
+
+        for(int i = 0; i < objects.Length; i++)
+        {
+            t[i] = objects[i].transform; 
+        }
+
+
+        pointsOfInterest = t; 
+
     }
 
     void Update()
