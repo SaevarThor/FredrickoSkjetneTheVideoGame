@@ -15,14 +15,14 @@ public class WiggleWiggle : MonoBehaviour
 
     void Start()
     {
-        startPos = transform.position;
+        startPos = transform.localPosition;
         startRot = transform.rotation;
     }
 
     void FixedUpdate()
     {
         float wiggleOffset = Mathf.Sin(Time.time * wiggleSpeed) * wiggleMagnitude;
-        transform.position = new Vector3(startPos.x + wiggleOffset, startPos.y - Time.time * fallSpeed, startPos.z);
+        transform.localPosition = new Vector3(startPos.x + wiggleOffset, startPos.y - Time.time * fallSpeed, startPos.z);
 
         float rotationOffset = Mathf.Sin(Time.time * rotationSpeed) * rotationMagnitude;
         transform.rotation = startRot * Quaternion.Euler(0f, 0f, rotationOffset);
