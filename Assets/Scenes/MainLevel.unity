@@ -8674,6 +8674,63 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 3473400967163541500, guid: de7d557725832a24e845a8f27162e811, type: 3}
   m_PrefabInstance: {fileID: 1079889255}
   m_PrefabAsset: {fileID: 0}
+--- !u!1001 &1082982625
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 8439341199513635815, guid: 6dabead267c0b2443aeb23c183befe57, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 383.89
+      objectReference: {fileID: 0}
+    - target: {fileID: 8439341199513635815, guid: 6dabead267c0b2443aeb23c183befe57, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 44.35
+      objectReference: {fileID: 0}
+    - target: {fileID: 8439341199513635815, guid: 6dabead267c0b2443aeb23c183befe57, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 85.98
+      objectReference: {fileID: 0}
+    - target: {fileID: 8439341199513635815, guid: 6dabead267c0b2443aeb23c183befe57, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.4372347
+      objectReference: {fileID: 0}
+    - target: {fileID: 8439341199513635815, guid: 6dabead267c0b2443aeb23c183befe57, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8439341199513635815, guid: 6dabead267c0b2443aeb23c183befe57, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0.8993474
+      objectReference: {fileID: 0}
+    - target: {fileID: 8439341199513635815, guid: 6dabead267c0b2443aeb23c183befe57, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8439341199513635815, guid: 6dabead267c0b2443aeb23c183befe57, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8439341199513635815, guid: 6dabead267c0b2443aeb23c183befe57, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: -128.145
+      objectReference: {fileID: 0}
+    - target: {fileID: 8439341199513635815, guid: 6dabead267c0b2443aeb23c183befe57, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9103253380379447645, guid: 6dabead267c0b2443aeb23c183befe57, type: 3}
+      propertyPath: m_Name
+      value: Scrumbus
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 6dabead267c0b2443aeb23c183befe57, type: 3}
 --- !u!1 &1109935554
 GameObject:
   m_ObjectHideFlags: 0
@@ -15700,3 +15757,4 @@ SceneRoots:
   - {fileID: 113919124}
   - {fileID: 196104778}
   - {fileID: 366526860}
+  - {fileID: 1082982625}
