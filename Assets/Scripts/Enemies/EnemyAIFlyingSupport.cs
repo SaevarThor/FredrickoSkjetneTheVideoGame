@@ -134,6 +134,7 @@ public class EnemyAIFlyingSupport : BaseEnemyAI
             return;
         }
 
+
         _bobTime += Time.deltaTime;
 
         Vector3 offset = new Vector3(
@@ -145,14 +146,14 @@ public class EnemyAIFlyingSupport : BaseEnemyAI
         transform.position = _moveTarget + offset;
 
         // Switch ally on a timer
-        _switchAllyTimer -= Time.deltaTime;
-        if (_switchAllyTimer <= 0f)
-        {
-            _switchAllyTimer = UnityEngine.Random.Range(switchAllyMinTime, switchAllyMaxTime);
-            _currentAlly.GetComponent<EnemyHealth>().MakeVulnerable();
-            particle.Stop();
-            TryPickAlly();
-        }
+        //_switchAllyTimer -= Time.deltaTime;
+        //if (_switchAllyTimer <= 0f)
+        //{
+        //    _switchAllyTimer = UnityEngine.Random.Range(switchAllyMinTime, switchAllyMaxTime);
+        //    _currentAlly.GetComponent<EnemyHealth>().MakeVulnerable();
+        //    particle.Stop();
+        //    TryPickAlly();
+        //}
     }
 
     // -------------------------------------------------------------------------
@@ -231,6 +232,11 @@ public class EnemyAIFlyingSupport : BaseEnemyAI
         }
 
         return false;
+    }
+
+    private void OnDestroy()
+    {
+        _currentAlly.GetComponent<EnemyHealth>().MakeVulnerable();
     }
 
 
