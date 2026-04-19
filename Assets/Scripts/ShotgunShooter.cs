@@ -40,6 +40,7 @@ public class ShotgunShooter : MonoBehaviour
     [SerializeField] private Camera playerCamera;
     [SerializeField] private Transform muzzlePoint;
     [SerializeField] private AudioSource audioSource;
+    [SerializeField] private AudioSource reloadSource;
     [SerializeField] private AudioClip fireSound;
     [SerializeField] private AudioClip reloadSound;
     [SerializeField] private AudioClip emptyClickSound;
@@ -340,7 +341,7 @@ public class ShotgunShooter : MonoBehaviour
     private IEnumerator Reload()
     {
         _isReloading = true;
-        PlaySound(reloadSound);
+        //PlaySound(reloadSound);
 
         if (_weaponSway != null)
         {
@@ -348,7 +349,15 @@ public class ShotgunShooter : MonoBehaviour
             _weaponSway.ApplyReloadAnimation();
         }
 
+        if (audioSource != null && reloadSound != null)
+        {
+            reloadSource.pitch = reloadSound.length / reloadTime;
+            reloadSource.PlayOneShot(reloadSound);
+        }
+
         yield return new WaitForSeconds(reloadTime);
+
+        audioSource.pitch = 1; 
 
         _currentAmmo = maxAmmo;
         _isReloading = false;
@@ -372,7 +381,15 @@ public class ShotgunShooter : MonoBehaviour
     // Upgrades
     // -------------------------------------------------------------------------
     public void ApplyFireRateUpgrade(float newFireRate)    => fireRate   = fireRate   * (1f - newFireRate);
-    public void ApplyReloadSpeedUpgrade(float newReload)   => reloadTime = reloadTime * (1f - newReload);
+    public void ApplyReloadSpeedUpgrade(float newReload)
+    {
+        reloadTime = reloadTime * (1f - newReload);
+        
+        if (reloadTime < 0.1f)
+        {
+            reloadTime = 0.1f;
+        }
+    }   
     public void ApplyDamageBuff(float buff)                => damage     = damage * (1f - buff);   
     public void ApplyMagSizeUpgrade(float additionalShots)
     {
@@ -393,6 +410,7 @@ public class ShotgunShooter : MonoBehaviour
     {
         if (audioSource != null && clip != null)
         {
+            audioSource.pitch = 1; 
             audioSource.loop = loop; 
             if (!loop)
             {
