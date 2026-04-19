@@ -60,10 +60,22 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: -127.724
       objectReference: {fileID: 0}
+    - target: {fileID: -7511558181221131132, guid: 7828e06d01776bec0bc214bd9cacb006, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: c88ce7a13283e0c46b790f80ba1d0365, type: 2}
+    - target: {fileID: -43390255989859880, guid: 7828e06d01776bec0bc214bd9cacb006, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: c88ce7a13283e0c46b790f80ba1d0365, type: 2}
     - target: {fileID: 919132149155446097, guid: 7828e06d01776bec0bc214bd9cacb006, type: 3}
       propertyPath: m_Name
       value: CharacterHandWithGuidingEyeball
       objectReference: {fileID: 0}
+    - target: {fileID: 6448678818323749754, guid: 7828e06d01776bec0bc214bd9cacb006, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: c88ce7a13283e0c46b790f80ba1d0365, type: 2}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
