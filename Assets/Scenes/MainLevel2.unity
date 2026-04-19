@@ -6803,29 +6803,9 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 0}
     - target: {fileID: 4377731051775864022, guid: 10928a36fb4d7e24890a57de90f675fb, type: 3}
-      propertyPath: maxAmmo
-      value: 16
-      objectReference: {fileID: 0}
-    - target: {fileID: 4377731051775864022, guid: 10928a36fb4d7e24890a57de90f675fb, type: 3}
       propertyPath: AmmoText
       value: 
       objectReference: {fileID: 62993648}
-    - target: {fileID: 4377731051775864022, guid: 10928a36fb4d7e24890a57de90f675fb, type: 3}
-      propertyPath: fireRate
-      value: 0.1
-      objectReference: {fileID: 0}
-    - target: {fileID: 4377731051775864022, guid: 10928a36fb4d7e24890a57de90f675fb, type: 3}
-      propertyPath: reloadTime
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 4377731051775864022, guid: 10928a36fb4d7e24890a57de90f675fb, type: 3}
-      propertyPath: spreadAngle
-      value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 4377731051775864022, guid: 10928a36fb4d7e24890a57de90f675fb, type: 3}
-      propertyPath: pelletsPerShot
-      value: 32
-      objectReference: {fileID: 0}
     - target: {fileID: 5902217332342858979, guid: 10928a36fb4d7e24890a57de90f675fb, type: 3}
       propertyPath: healthText
       value: 
