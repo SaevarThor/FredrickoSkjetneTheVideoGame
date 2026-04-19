@@ -40,8 +40,11 @@ public class EnemyHealth : MonoBehaviour, IDamageable
 
     private void Die()
     {
-        isDead = true; 
-        Instantiate(bloodExplosion, transform.position, Quaternion.identity);
+        isDead = true;
+        if (bloodExplosion != null)
+        {
+            Instantiate(bloodExplosion, transform.position, Quaternion.identity);
+        }
 
         GameObject levelManager = GameObject.FindGameObjectWithTag("LevelManager");
         var levelManagerScript = levelManager.GetComponent<LevelManager>();
