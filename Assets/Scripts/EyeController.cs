@@ -63,7 +63,7 @@ public class EyeController : MonoBehaviour
 
     void Update()
     {
-        Debug.Log(pointsOfInterest.Length);
+        
         if (pointsOfInterest.Length == 0) {
             DoIdleSpin();
             return;
