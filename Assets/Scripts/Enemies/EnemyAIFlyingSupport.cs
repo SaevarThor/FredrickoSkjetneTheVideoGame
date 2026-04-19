@@ -6,8 +6,6 @@ using static UnityEditor.Experimental.GraphView.GraphView;
 
 public class EnemyAIFlyingSupport : BaseEnemyAI
 {
-
-
     [Header("Flight")]
     [SerializeField] private float flySpeed = 5f;
     [SerializeField] private float hoverHeight = 4f;
@@ -17,28 +15,45 @@ public class EnemyAIFlyingSupport : BaseEnemyAI
     [Header("Support Hovering")]
     [SerializeField] private float hoverRadius = 3f;           // How far from the ally it hovers
     [SerializeField] private float allySearchRadius = 20f;     // How far it looks for allies
-    [SerializeField] private float switchAllyMinTime = 4f;     // Min seconds before switching ally
-    [SerializeField] private float switchAllyMaxTime = 9f;     // Max seconds before switching ally
+    [SerializeField] private float switchAllyMinTime = 400f;     // Min seconds before switching ally
+    [SerializeField] private float switchAllyMaxTime = 900f;     // Max seconds before switching ally
 
     [Header("Wandering")]
     [SerializeField] private float wanderRadius = 8f;          // How far wander points are picked
     [SerializeField] private float wanderArrivalDist = 1.5f;   // How close = arrived
 
-    private enum FlyState { Protecting, Wandering }
-    private FlyState _flyState = FlyState.Wandering;
+    [Header("Protection bob")]
+    [SerializeField] private float xAmplitude = 0.8f;   // Side to side range
+    [SerializeField] private float yAmplitude = 0.4f;   // Up and down range
+    [SerializeField] private float zAmplitude = 0.6f;   // Forward back range
 
-    private Transform _currentAlly;
-    private Vector3 _hoverOffset;          // Offset around ally we're aiming for
+    [SerializeField] private float xSpeed = 1.1f;       // Different speeds per axis
+    [SerializeField] private float ySpeed = 2.1f;       // creates the figure-8 / lissajous
+    [SerializeField] private float zSpeed = 1.7f;       // shape naturally
+
+    [SerializeField] private float xPhase = 0f;         // Phase offsets shift where in
+    [SerializeField] private float yPhase = 1.2f;       // the pattern it starts
+    [SerializeField] private float zPhase = 2.4f;
+
+    public enum FlyState { Protecting, Wandering, MoveToAlly }
+    public FlyState _flyState = FlyState.Wandering;
+
+    public Transform _currentAlly;
     private float _switchAllyTimer = 0f;
 
-    private Vector3 _wanderTarget;
+    private Vector3 Origin; //the original spawn position of this enemy
+    private Vector3 _moveTarget;
     private float _bobTime = 0f;
+    
 
     // -------------------------------------------------------------------------
     public override void Awake()
     {
         base.Awake();
+        Origin = transform.position;
         EnterCombat();
+        PickWanderTarget();
+        _switchAllyTimer = switchAllyMaxTime;
     }
 
     // -------------------------------------------------------------------------
@@ -64,7 +79,7 @@ public class EnemyAIFlyingSupport : BaseEnemyAI
         base.ExitCombat();
         _currentAlly = null;
         _flyState = FlyState.Wandering;
-        PickWanderTarget();
+        //PickWanderTarget();
     }
 
     // -------------------------------------------------------------------------
@@ -72,39 +87,63 @@ public class EnemyAIFlyingSupport : BaseEnemyAI
     // -------------------------------------------------------------------------
     public override void UpdateCombat()
     {
-
-        _bobTime += Time.deltaTime * bobSpeed;
-
-        // Switch ally on a timer
-        _switchAllyTimer -= Time.deltaTime;
-        if (_switchAllyTimer <= 0f)
-            TryPickAlly();
-
-        // Clean up dead/missing ally
-        if (_currentAlly == null)
-        {
-            TryPickAlly();
-            if (_currentAlly == null)
-                _flyState = FlyState.Wandering;
-        }
-
+                        
         switch (_flyState)
         {
-            case FlyState.Protecting: UpdateHovering(); break;
+            case FlyState.MoveToAlly: UpdateMoveToAlly(); break;
             case FlyState.Wandering: UpdateWandering(); break;
+            case FlyState.Protecting: UpdateProtecting(); break;
         }
     }
 
     // -------------------------------------------------------------------------
     // Hovering - float near chosen ally
     // -------------------------------------------------------------------------
-    private void UpdateHovering()
+    private void UpdateMoveToAlly()
     {
-        Vector3 target = _currentAlly.position + _hoverOffset;
-        target.y = _currentAlly.position.y + hoverHeight + Mathf.Sin(_bobTime) * bobAmplitude;
+        // if the ally is dead we want to move on to the next ally
+        if (_currentAlly == null) {
+            TryPickAlly();
+            return;
+        }
 
-        transform.position = Vector3.Lerp(transform.position, target, flySpeed * Time.deltaTime);
+        _moveTarget = _currentAlly.position;
+        _moveTarget.y = _currentAlly.position.y + hoverHeight + Mathf.Sin(_bobTime) * bobAmplitude;
+
+        // we move a bit faster when moving to an enemy
+        transform.position = Vector3.Lerp(transform.position, _moveTarget, (flySpeed*1.2f) * Time.deltaTime);
         FacePlayer();
+
+        // we reach the enemy and start protecting
+        if (Vector3.Distance(transform.position, _moveTarget) < wanderArrivalDist)
+        {
+            _flyState = FlyState.Protecting;
+        }
+    }
+
+    private void UpdateProtecting() {
+        if (_currentAlly == null) {
+            TryPickAlly();
+            return;
+        }
+
+        _bobTime += Time.deltaTime;
+
+        Vector3 offset = new Vector3(
+            Mathf.Sin(_bobTime * xSpeed + xPhase) * xAmplitude,
+            Mathf.Sin(_bobTime * ySpeed + yPhase) * yAmplitude,
+            Mathf.Sin(_bobTime * zSpeed + zPhase) * zAmplitude
+        );
+
+        transform.position = _moveTarget + offset;
+
+        // Switch ally on a timer
+        _switchAllyTimer -= Time.deltaTime;
+        if (_switchAllyTimer <= 0f)
+        {
+            _switchAllyTimer = UnityEngine.Random.Range(switchAllyMinTime, switchAllyMaxTime);
+            TryPickAlly();
+        }
     }
 
     // -------------------------------------------------------------------------
@@ -114,29 +153,26 @@ public class EnemyAIFlyingSupport : BaseEnemyAI
     {
         float bob = Mathf.Sin(_bobTime) * bobAmplitude;
 
-        Vector3 target = new Vector3(_wanderTarget.x, _wanderTarget.y + bob, _wanderTarget.z);
-
         // MoveTowards never overshoots, so arrival is clean
         transform.position = Vector3.MoveTowards(
-            transform.position, target, flySpeed * Time.deltaTime
+            transform.position, _moveTarget, flySpeed * Time.deltaTime
         );
 
         FacePlayer();
 
-        if (Vector3.Distance(transform.position, _wanderTarget) < wanderArrivalDist)
+        if (Vector3.Distance(transform.position, _moveTarget) < wanderArrivalDist)
         {
-            Debug.Log("arrived, need new target");
             PickWanderTarget();
         }
     }
 
     private void PickWanderTarget()
     {
-        Vector2 rand = Random.insideUnitCircle * wanderRadius;
-        _wanderTarget = new Vector3(
-            transform.position.x + rand.x,
+        Vector2 rand = new Vector2(Origin.x, Origin.z) + Random.insideUnitCircle * wanderRadius;
+        _moveTarget = new Vector3(
+            rand.x,
             transform.position.y,   // Keep current height, bob handles the rest
-            transform.position.z + rand.y
+            rand.y
         );
     }
 
@@ -152,15 +188,15 @@ public class EnemyAIFlyingSupport : BaseEnemyAI
         foreach (Collider hit in hits)
         {
             BaseEnemyAI enemy = hit.GetComponent<BaseEnemyAI>();
-            if (enemy != null && enemy != this && EvaluateAlly(enemy.transform))
+            if (enemy != null && enemy != this )
                 candidates.Add(hit.transform);
         }
 
         if (candidates.Count == 0)
         {
+            Debug.Log("no allies to support");
             _currentAlly = null;
             _flyState = FlyState.Wandering;
-            ExitCombat();
             return;
         }
 
@@ -169,11 +205,8 @@ public class EnemyAIFlyingSupport : BaseEnemyAI
             candidates.RemoveAll(c => c == _currentAlly);
 
         _currentAlly = candidates[Random.Range(0, candidates.Count)];
-        _hoverOffset = new Vector3(
-            Random.insideUnitCircle.x, 0f, Random.insideUnitCircle.y
-        ).normalized * hoverRadius;
 
-        _flyState = FlyState.Protecting;
+        _flyState = FlyState.MoveToAlly;
         _switchAllyTimer = Random.Range(switchAllyMinTime, switchAllyMaxTime);
     }
 
@@ -195,8 +228,11 @@ public class EnemyAIFlyingSupport : BaseEnemyAI
     internal void OnDrawGizmosSelected()
     {
         Gizmos.color = Color.green;
-        Gizmos.DrawWireSphere(_wanderTarget, 0.5f);
-
+        Gizmos.DrawWireSphere(_moveTarget, 0.5f);
+        Gizmos.color = Color.yellow;
+        Gizmos.DrawWireSphere(Origin, wanderRadius);
+        Gizmos.color = Color.orange;
+        Gizmos.DrawWireSphere(Origin, allySearchRadius);
 
         switch (_flyState) { 
             case FlyState.Wandering:
@@ -204,6 +240,9 @@ public class EnemyAIFlyingSupport : BaseEnemyAI
                 break;
             case FlyState.Protecting:
                 Gizmos.color = Color.yellow;
+                break;
+            case FlyState.MoveToAlly:
+                Gizmos.color = Color.blue;
                 break;
             default: break;
         }

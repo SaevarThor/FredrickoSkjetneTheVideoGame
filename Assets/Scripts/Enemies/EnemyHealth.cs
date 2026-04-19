@@ -9,7 +9,9 @@ public class EnemyHealth : MonoBehaviour, IDamageable
 
     public float Score = 20f; 
 
-    private bool isDead = false; 
+    private bool isDead = false;
+
+    private bool isInvulnerable = false;
 
     [SerializeField] private GameObject bloodExplosion;
 
@@ -20,7 +22,8 @@ public class EnemyHealth : MonoBehaviour, IDamageable
 
     public void TakeDamage(float amount)
     {
-        if (isDead) return; 
+        if (isDead) return;
+        if (isInvulnerable) return;
         // Implementation for taking damage
         CurrentHealth -= amount;
         if (CurrentHealth <= 0)
@@ -29,6 +32,10 @@ public class EnemyHealth : MonoBehaviour, IDamageable
             Die();
         }
     }
+
+    public void MakeInvulnerable() { isInvulnerable = true; }
+
+    public void MakeVulnerable() {  isInvulnerable = false; }
 
 
     private void Die()
