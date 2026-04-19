@@ -436,6 +436,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 62b3b256844192e49bf27225a77307a2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::EnemyHealth
+  MaxHealth: 100
+  Score: 20
   bloodExplosion: {fileID: 2845576331320081517, guid: 05b1eb61edd25834e960e6de09bc32d9, type: 3}
 --- !u!195 &1418725239732969558
 NavMeshAgent:
@@ -509,9 +511,10 @@ MonoBehaviour:
   windUpSound: {fileID: 0}
   hitLayers:
     serializedVersion: 2
-    m_Bits: 4294967295
+    m_Bits: 115
   bulletHolePrefab: {fileID: 2450288964288674126, guid: ac0380c3d6ce2194d9e3bc5e46e22d9c, type: 3}
   impactFlashPrefab: {fileID: 0}
+  _isWindingUp: 0
 --- !u!82 &8961568910321170962
 AudioSource:
   m_ObjectHideFlags: 0

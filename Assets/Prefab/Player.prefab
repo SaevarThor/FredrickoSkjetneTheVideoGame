@@ -165,7 +165,7 @@ MonoBehaviour:
   bloodHit: {fileID: 7017870152517531520, guid: 2ce587da2db0a704db1298d7eb27dff7, type: 3}
   hitLayers:
     serializedVersion: 2
-    m_Bits: 4294967295
+    m_Bits: 115
   pelletTrail: {fileID: 157929636689130908}
   AmmoText: {fileID: 0}
 --- !u!114 &157929636689130908

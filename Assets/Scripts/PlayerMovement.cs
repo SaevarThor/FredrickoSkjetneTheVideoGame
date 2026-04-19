@@ -55,6 +55,15 @@ public class PlayerMovement : MonoBehaviour
 
     }
 
+    public void TeleportPlayer(Vector3 pos, float damage = 15)
+    {
+        _controller.enabled = false;
+        this.transform.position = pos; 
+        _controller.enabled = true; 
+
+        GetComponent<IDamageable>().TakeDamage(damage); 
+    }
+
     // -------------------------------------------------------------------------
     // Mouse Look
     // Rotates the player body horizontally and the camera vertically.

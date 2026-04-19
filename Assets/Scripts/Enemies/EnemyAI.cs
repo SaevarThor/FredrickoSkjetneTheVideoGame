@@ -28,7 +28,6 @@ public class EnemyAI : BaseEnemyAI
     // -------------------------------------------------------------------------
     public override void UpdateIdle()
     {
-        Debug.Log(_state);
         if (Vector3.Distance(transform.position, _player.position) <= detectionRadius)
             EnterCombat();
     }
