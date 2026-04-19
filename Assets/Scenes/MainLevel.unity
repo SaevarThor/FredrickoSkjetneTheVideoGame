@@ -8315,6 +8315,10 @@ PrefabInstance:
       propertyPath: AmmoText
       value: 
       objectReference: {fileID: 62993648}
+    - target: {fileID: 4377731051775864022, guid: 10928a36fb4d7e24890a57de90f675fb, type: 3}
+      propertyPath: chargeTime
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 5902217332342858979, guid: 10928a36fb4d7e24890a57de90f675fb, type: 3}
       propertyPath: healthText
       value: 

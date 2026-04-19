@@ -9,6 +9,9 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] private float jumpHeight = 1.5f;
     [SerializeField] private float gravity = -20f;
 
+
+    private float maxSprintSpeed = 50; 
+
     [Header("Mouse Look")]
     [SerializeField] private float mouseSensitivity = 2f;
     [SerializeField] private float verticalLookClamp = 85f;
@@ -46,8 +49,11 @@ public class PlayerMovement : MonoBehaviour
 
     public void ApplySpeedUpgrade(float speedIncrease)
     {
+        if (sprintSpeed > maxSprintSpeed) return; 
+
         walkSpeed = walkSpeed * (1f + speedIncrease);
         sprintSpeed = sprintSpeed * (1f + speedIncrease);
+
     }
 
     // -------------------------------------------------------------------------
