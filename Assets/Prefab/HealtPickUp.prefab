@@ -115,7 +115,6 @@ GameObject:
   - component: {fileID: 1909657023631077919}
   - component: {fileID: 4209157131646574952}
   - component: {fileID: 3077768428394868119}
-  - component: {fileID: 5084419845314451121}
   m_Layer: 0
   m_Name: HealtPickUp
   m_TagString: Untagged
@@ -160,7 +159,7 @@ BoxCollider:
   m_Enabled: 1
   serializedVersion: 3
   m_Size: {x: 0.7, y: 1.1823807, z: 0.7}
-  m_Center: {x: 0, y: 0.303751, z: 0}
+  m_Center: {x: 0, y: 0.65, z: 0}
 --- !u!114 &3077768428394868119
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -175,33 +174,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: '::'
   healAmount: 25
   pickupSound: {fileID: 8300000, guid: 63f463a20795a144fa06e7ddfba6c73f, type: 3}
---- !u!54 &5084419845314451121
-Rigidbody:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5823810435886409753}
-  serializedVersion: 5
-  m_Mass: 1
-  m_LinearDamping: 0
-  m_AngularDamping: 0.05
-  m_CenterOfMass: {x: 0, y: 0, z: 0}
-  m_InertiaTensor: {x: 1, y: 1, z: 1}
-  m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ImplicitCom: 0
-  m_ImplicitTensor: 0
-  m_UseGravity: 0
-  m_IsKinematic: 1
-  m_Interpolate: 0
-  m_Constraints: 0
-  m_CollisionDetection: 0
 --- !u!1 &8920933523696833126
 GameObject:
   m_ObjectHideFlags: 0
