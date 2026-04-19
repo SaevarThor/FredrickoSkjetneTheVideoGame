@@ -44,7 +44,9 @@ public class EnemyAIFlyingSupport : BaseEnemyAI
     private Vector3 Origin; //the original spawn position of this enemy
     private Vector3 _moveTarget;
     private float _bobTime = 0f;
-    
+
+    private EnemyAIFlyingSupport Ai;
+    public ParticleSystem particle;
 
     // -------------------------------------------------------------------------
     public override void Awake()
@@ -111,12 +113,17 @@ public class EnemyAIFlyingSupport : BaseEnemyAI
         _moveTarget.y = _currentAlly.position.y + hoverHeight + Mathf.Sin(_bobTime) * bobAmplitude;
 
         // we move a bit faster when moving to an enemy
-        transform.position = Vector3.Lerp(transform.position, _moveTarget, (flySpeed*1.2f) * Time.deltaTime);
+        transform.position = Vector3.Lerp(transform.position, _moveTarget, (flySpeed*1.2f) * Time.deltaTime * 2f);
         FacePlayer();
 
         // we reach the enemy and start protecting
         if (Vector3.Distance(transform.position, _moveTarget) < wanderArrivalDist)
         {
+            _currentAlly.GetComponent<EnemyHealth>().MakeInvulnerable();
+            if (!particle.isPlaying)
+            {
+                particle.Play();
+            }
             _flyState = FlyState.Protecting;
         }
     }
@@ -142,6 +149,8 @@ public class EnemyAIFlyingSupport : BaseEnemyAI
         if (_switchAllyTimer <= 0f)
         {
             _switchAllyTimer = UnityEngine.Random.Range(switchAllyMinTime, switchAllyMaxTime);
+            _currentAlly.GetComponent<EnemyHealth>().MakeVulnerable();
+            particle.Stop();
             TryPickAlly();
         }
     }
