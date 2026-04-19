@@ -70,13 +70,17 @@ public class EyeController : MonoBehaviour
         }
 
         var currentTransform = transform.position;
-        var targetTransform = GetNearestPOI().position;
-        if (Vector3.Distance(currentTransform, targetTransform) > maxRange) {
+        var targetTransform = GetNearestPOI();
+        if (targetTransform == null)
+        {
+            DoIdleSpin();
+        }
+        if (Vector3.Distance(currentTransform, targetTransform.position) > maxRange) {
             DoIdleSpin();
             return;
         }
 
-        var targetAngle = targetTransform - currentTransform;
+        var targetAngle = targetTransform.position - currentTransform;
        
 
         Quaternion targetRotation = Quaternion.LookRotation(targetAngle);
