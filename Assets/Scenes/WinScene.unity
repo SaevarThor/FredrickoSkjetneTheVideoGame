@@ -398,7 +398,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: -558.3, y: -137}
-  m_SizeDelta: {x: 359.3995, y: 30}
+  m_SizeDelta: {x: 373.2, y: 68.6}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &679570435
 MonoBehaviour:
@@ -421,7 +421,7 @@ MonoBehaviour:
     m_SelectOnRight: {fileID: 0}
   m_Transition: 1
   m_Colors:
-    m_NormalColor: {r: 1, g: 1, b: 1, a: 0}
+    m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
     m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
     m_PressedColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 1}
     m_SelectedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
@@ -476,8 +476,8 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 10905, guid: 0000000000000000f000000000000000, type: 0}
-  m_Type: 1
+  m_Sprite: {fileID: -181437235, guid: 037b25dc753536c4a8c9c635380125a9, type: 3}
+  m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
   m_FillMethod: 4
@@ -671,8 +671,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: New Text
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 2e075c03f568941439d8c221d55017db, type: 2}
+  m_sharedMaterial: {fileID: 558019695709300133, guid: 2e075c03f568941439d8c221d55017db, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -1071,8 +1071,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: Play New Game +
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 5a4418ce1c807d54cabd4aebaa4736fd, type: 2}
-  m_sharedMaterial: {fileID: 5568404440583507632, guid: 5a4418ce1c807d54cabd4aebaa4736fd, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 2e075c03f568941439d8c221d55017db, type: 2}
+  m_sharedMaterial: {fileID: 558019695709300133, guid: 2e075c03f568941439d8c221d55017db, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -1135,7 +1135,7 @@ MonoBehaviour:
   m_VertexBufferAutoSizeReduction: 0
   m_useMaxVisibleDescender: 1
   m_pageToDisplay: 1
-  m_margin: {x: 0, y: 0, z: 0, w: 0}
+  m_margin: {x: 19.317078, y: 0, z: 19.317078, w: 0}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_hasFontAssetChanged: 0
