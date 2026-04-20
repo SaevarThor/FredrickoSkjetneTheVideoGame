@@ -38,7 +38,8 @@ public class GameManager : MonoBehaviour
         CommonUpgrades.Add(new LargerMagUpgrade(1));
         CommonUpgrades.Add(new DamageBonusUpgrade(0.1f)); 
         CommonUpgrades.Add(new ShotgunRangeUpgrade(2)); 
-        CommonUpgrades.Add(new ShotgunSpreadUpgrade(0.05f)); 
+        CommonUpgrades.Add(new ShotgunSpreadUpgrade(0.05f));
+        CommonUpgrades.Add(new ChargeSpeedUpgrade(0.1f));
     }
 
     private void GenerateRareUpgrades()
@@ -54,6 +55,8 @@ public class GameManager : MonoBehaviour
         RareUpgrades.Add(new ExtraPalletUpgrade(1));
         RareUpgrades.Add(new ShotgunRangeUpgrade(5)); 
         RareUpgrades.Add(new ShotgunSpreadUpgrade(0.1f));
+        RareUpgrades.Add(new ChargeSpeedUpgrade(0.2f));
+        RareUpgrades.Add(new ChargeShotDamageMultiplier(1.5f));
     }
     
     private void GenerateEpicUpgrades()
@@ -68,7 +71,9 @@ public class GameManager : MonoBehaviour
         EpicUpgrades.Add(new DamageBonusUpgrade(0.5f)); 
         EpicUpgrades.Add(new ExtraPalletUpgrade(2));
         EpicUpgrades.Add(new ShotgunRangeUpgrade(10)); 
-        EpicUpgrades.Add(new ShotgunSpreadUpgrade(0.2f)); 
+        EpicUpgrades.Add(new ShotgunSpreadUpgrade(0.2f));
+        EpicUpgrades.Add(new ChargeSpeedUpgrade(0.3f));
+        RareUpgrades.Add(new ChargeShotDamageMultiplier(3f));
     }
 
     [ContextMenu("Test Upgrade")]

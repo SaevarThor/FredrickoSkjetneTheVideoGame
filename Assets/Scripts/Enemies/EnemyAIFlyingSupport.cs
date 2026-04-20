@@ -261,7 +261,6 @@ public class EnemyAIFlyingSupport : BaseEnemyAI
             _currentAlly.GetComponent<EnemyHealth>().MakeVulnerable();
         }
         
-
         if (_supportBeam != null)
             _supportBeam.ClearTarget();
     }

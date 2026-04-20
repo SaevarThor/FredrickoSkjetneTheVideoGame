@@ -429,6 +429,15 @@ public class ShotgunShooter : MonoBehaviour
 
         
     }   
+
+    public void ApplyChargeUpgrade(float buff)
+    {
+        chargeTime = chargeTime * (1f - buff);
+        if (chargeTime < 0.1f)
+        {
+            chargeTime = 0.1f;
+        }
+    }
     public void ApplyDamageBuff(float buff)                => damage     = damage * (1f + buff);   
     public void ApplyMagSizeUpgrade(float additionalShots)
     {
