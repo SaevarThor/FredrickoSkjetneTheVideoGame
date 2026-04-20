@@ -427,7 +427,7 @@ MonoBehaviour:
   - They fled the cradle of mankind, crossed the void, and built their shrines beneath
     the red sky. They whispered new doctrines. Twisted the sacred word. Declared
     themselves beyond the reach of the Church.
-  - They were let astray.
+  - They were led astray.
   - 'The Light does not fade with distance.
 
     It does not weaken in the dark between
@@ -441,12 +441,13 @@ MonoBehaviour:
   - 'Let their false prophets tremble.
 
     Let their hollow gods remain silent.'
-  - "For I carry the only truth that matters\u2014"
-  - Faith. Fire. And my shotgun.
+  - For I carry the only truth that matters
+  - <Faith. Fire. And my shotgun.>
   textComponent: {fileID: 163875809}
   typingSpeed: 0.06
   pauseBetweenTexts: 1
   waitBeforeLoadingNextScene: 4
+  isFirst: 1
 --- !u!4 &575439638
 Transform:
   m_ObjectHideFlags: 0

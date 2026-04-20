@@ -12,11 +12,14 @@ public class IntroManager : MonoBehaviour
 
     public float waitBeforeLoadingNextScene = 4f;
 
+    public bool isFirst = false;
+
     void Start()
     {
         StartCoroutine(TypeText());
 
-        ReferenceManager.Instance.GetComponentInChildren<MusicManager>().Pause();
+        if (!isFirst)
+            ReferenceManager.Instance.GetComponentInChildren<MusicManager>().Pause();
     }
 
     IEnumerator TypeText()
@@ -52,7 +55,9 @@ public class IntroManager : MonoBehaviour
 
         yield return new WaitForSeconds(waitBeforeLoadingNextScene);
         // All texts done, load next scene
-        ReferenceManager.Instance.GetComponentInChildren<MusicManager>().Unpause();
+        if (!isFirst)
+            ReferenceManager.Instance.GetComponentInChildren<MusicManager>().Unpause();
+            
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
     }
 }

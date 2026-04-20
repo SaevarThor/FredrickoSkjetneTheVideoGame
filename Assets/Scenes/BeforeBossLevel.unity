@@ -427,17 +427,18 @@ MonoBehaviour:
   - "I am at their altar. \nBefore me is no god. \nIt's a mistake, waiting to be
     corrected."
   - "It watches me.\nLike I\u2019m supposed to kneel.\nI don\u2019t kneel. I reload."
-  - "It\u2019s big.\nIt\u2019s ancient.\nIt\u2019s angry.\nSo am I."
+  - "It\u2019s big.\nIt\u2019s ancient.\nIt\u2019s angry.\n<So am I.>"
   - 'It offers me salvation.
 
-    I brought my own. Twelve gauge.'
+    I brought my own. <Twelve gauge.>'
   - "No backup.\nNo miracles coming.\nJust one priest.\nOne shotgun.\nAnd one false
-    god about to learn\n\n<when you reach far enough into the dark\u2026\nsometimes
+    god about to learn\n\n<When you reach far enough into the dark\u2026\nsometimes
     the Light hits back.>"
   textComponent: {fileID: 163875809}
   typingSpeed: 0.06
   pauseBetweenTexts: 1
   waitBeforeLoadingNextScene: 4
+  isFirst: 0
 --- !u!4 &575439638
 Transform:
   m_ObjectHideFlags: 0

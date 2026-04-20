@@ -426,7 +426,7 @@ MonoBehaviour:
   - "I\u2019ve walked too far to hear confessions.\nThis isn\u2019t a colony anymore\nit\u2019s
     a carnival of heresy."
   - "I\u2019ve seen their temples.\nSteel bones. Bleeding walls.\nWhatever they\u2019re
-    worshipping\u2026\nit\u2019s got teeth."
+    worshipping\u2026\n<it\u2019s got teeth.>"
   - 'They told me to fear it.
 
     I told them fear is for sinners.
@@ -439,16 +439,17 @@ MonoBehaviour:
     They said their god watches
     everything.
 
-    <b>Good. Saves me the trouble of knocking.</b>'
+    <Good. Saves me the trouble of knocking.>'
   - "I don\u2019t cleanse whispers.\nI cleanse with thunder.\nThey called it ascension.\nI
     call it target practice."
   - "Let their false god rise.\nLet it crawl out of the dark and beg for worship.\nI\u2019ve
     got one sermon left."
-  - "And it\u2019s loud."
+  - "<And it\u2019s loud.>"
   textComponent: {fileID: 163875809}
   typingSpeed: 0.06
   pauseBetweenTexts: 1
   waitBeforeLoadingNextScene: 4
+  isFirst: 0
 --- !u!4 &575439638
 Transform:
   m_ObjectHideFlags: 0
