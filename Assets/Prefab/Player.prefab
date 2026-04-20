@@ -761,7 +761,6 @@ GameObject:
   - component: {fileID: 6792003758304295983}
   - component: {fileID: 5964753455275435618}
   - component: {fileID: 8407801833202557062}
-  - component: {fileID: 7150120052766143677}
   - component: {fileID: 1635371909451378390}
   m_Layer: 0
   m_Name: Main Camera
@@ -890,25 +889,6 @@ MonoBehaviour:
     m_VarianceClampScale: 0.9
     m_ContrastAdaptiveSharpening: 0
   m_Version: 2
---- !u!114 &7150120052766143677
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2335626422137810463}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6fbe6a1231dbd684ca56847b33af5f5d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::PS2PostProcess
-  internalResolution: {x: 480, y: 272}
-  colorBands: 16
-  ditherStrength: 0.4
-  enableScanlines: 1
-  scanlineStrength: 0.15
-  scanlineThickness: 1
-  wobbleIntensity: 0.006
 --- !u!114 &1635371909451378390
 MonoBehaviour:
   m_ObjectHideFlags: 0
