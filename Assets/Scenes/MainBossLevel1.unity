@@ -984,9 +984,17 @@ PrefabInstance:
       propertyPath: deathPanelBackground
       value: 
       objectReference: {fileID: 561973949}
+    - target: {fileID: 7152508924225565988, guid: 855fe730c280b1b46bd4688128df498f, type: 3}
+      propertyPath: m_VideoClip
+      value: 
+      objectReference: {fileID: 32900000, guid: 585e7c0b989a8dd4191698550d8a4d03, type: 3}
     - target: {fileID: 7493089255849362723, guid: 855fe730c280b1b46bd4688128df498f, type: 3}
       propertyPath: unlockPanel
       value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 8091822074222925950, guid: 855fe730c280b1b46bd4688128df498f, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
