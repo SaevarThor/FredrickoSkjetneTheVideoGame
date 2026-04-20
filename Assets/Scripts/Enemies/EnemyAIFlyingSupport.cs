@@ -256,7 +256,11 @@ public class EnemyAIFlyingSupport : BaseEnemyAI
 
     private void OnDestroy()
     {
-        _currentAlly.GetComponent<EnemyHealth>().MakeVulnerable();
+        if (_currentAlly != null)
+        {
+            _currentAlly.GetComponent<EnemyHealth>().MakeVulnerable();
+        }
+        
 
         if (_supportBeam != null)
             _supportBeam.ClearTarget();
