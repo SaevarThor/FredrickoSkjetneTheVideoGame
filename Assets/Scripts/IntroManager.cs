@@ -15,6 +15,8 @@ public class IntroManager : MonoBehaviour
     void Start()
     {
         StartCoroutine(TypeText());
+
+        ReferenceManager.Instance.GetComponentInChildren<MusicManager>().Pause();
     }
 
     IEnumerator TypeText()
@@ -50,6 +52,7 @@ public class IntroManager : MonoBehaviour
 
         yield return new WaitForSeconds(waitBeforeLoadingNextScene);
         // All texts done, load next scene
+        ReferenceManager.Instance.GetComponentInChildren<MusicManager>().Unpause();
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
     }
 }

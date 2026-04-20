@@ -15,6 +15,7 @@ public class BossLevel : MonoBehaviour
     public GameObject[] secretPillars;
 
     public EnemyHealth bossHealth;
+    public GameObject phase2Enemies; 
 
     private void Start()
     {
@@ -65,5 +66,7 @@ public class BossLevel : MonoBehaviour
         {
             p.SetActive(true); 
         }
+
+        phase2Enemies.SetActive(true);
     }
 }

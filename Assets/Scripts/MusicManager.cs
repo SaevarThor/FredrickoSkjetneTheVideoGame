@@ -10,6 +10,8 @@ public class MusicManager : MonoBehaviour
     private float timer; 
     private float clipLifetime; 
 
+    private bool paused = false; 
+
 
     public void SetNewClip()
     {
@@ -34,11 +36,26 @@ public class MusicManager : MonoBehaviour
 
     private void Update()
     {
+        if (paused) return;
+
         timer += Time.deltaTime; 
 
         if (timer >= clipLifetime)
         {
             SetNewClip();
         }
+    }
+
+
+    public void Pause()
+    {
+        source.Pause();
+        paused = true; 
+    }
+
+    public void Unpause()
+    {
+        source.Play();
+        paused = false; 
     }
 }

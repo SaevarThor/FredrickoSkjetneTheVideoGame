@@ -153,12 +153,15 @@ public class BossEnemy : MonoBehaviour
 
     void Update()
     {
+        healthBarSlider.value = enemyHealth.CurrentHealth;
+
         if (isDead) return;
 
         HandleMovement();
         HandleFlying();
         HandleSpin();
         CheckPhaseTransition();
+
     }
 
     // ─────────────────────────────────────────────
@@ -231,6 +234,11 @@ public class BossEnemy : MonoBehaviour
             yield return new WaitForSeconds(currentFireRate);
             ShootFireballRing();
         }
+    }
+
+    private void Oestroy()
+    {
+        healthBarSlider.gameObject.SetActive(false);         
     }
 
     void ShootFireballRing()
@@ -314,7 +322,7 @@ public class BossEnemy : MonoBehaviour
 
         // Update health bar UI
         if (healthBarSlider != null)
-            healthBarSlider.value = currentHealth;
+            healthBarSlider.value = enemyHealth.CurrentHealth;
 
         Debug.Log($"[BossEnemy] Took {amount} damage. Health: {currentHealth}/{maxHealth}");
 
