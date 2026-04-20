@@ -701,28 +701,30 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: '::'
   introTexts:
-  - "I\u2019ve walked too far to hear confessions.\nThis isn\u2019t a colony anymore\nit\u2019s
-    a carnival of heresy."
-  - "I\u2019ve seen their temples.\nSteel bones. Bleeding walls.\nWhatever they\u2019re
-    worshipping\u2026\n<it\u2019s got teeth.>"
+  - "I\u2019ve gone too close to hear their signal.\r\nTheir shouts drown out the
+    noise\r\nit\u2019s a carnival of heretics gurgling on their own blood."
+  - "I\u2019ve seen their temples.\r\nBland box shaped walls, fairly creative decor.\r\nWhatever
+    they\u2019re worshipping\u2026\r\n<it\u2019s got style.>"
   - 'They told me to fear it.
 
     I told them fear is for sinners.
 
     They showed
-    me miracles.
+    me their false devotion.
 
-    I showed them ballistics.
+    I showed them my balls.
 
-    They said their god watches
-    everything.
+    They said their
+    god watches everything.
 
     <Good. Saves me the trouble of knocking.>'
-  - "I don\u2019t cleanse whispers.\nI cleanse with thunder.\nThey called it ascension.\nI
-    call it target practice."
-  - "Let their false god rise.\nLet it crawl out of the dark and beg for worship.\nI\u2019ve
-    got one sermon left."
-  - "<And it\u2019s loud.>"
+  - "I don\u2019t cleanse with Jiff cleaning spray.\r\nI cleanse with thunder and
+    bullets.\r\nThey called it ascension.\r\nI call it target practice."
+  - "Let their false god rise.\r\nLet it crawl out of the dark and beg for worship.\r\nI\u2019ve
+    got one signal left to send."
+  - '<And it''s a big middle finger on the trigger of my gun.>
+
+'
   textComponent: {fileID: 163875809}
   typingSpeed: 0.07
   pauseBetweenTexts: 1.5
@@ -1051,9 +1053,9 @@ AudioSource:
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 0}
-  m_Resource: {fileID: 8300000, guid: fe99e2eebe8178f459414d296bb536b2, type: 3}
+  m_Resource: {fileID: 8300000, guid: 73151338b665235419444ace0d636b8f, type: 3}
   m_PlayOnAwake: 1
-  m_Volume: 0.165
+  m_Volume: 0.444
   m_Pitch: 1
   Loop: 0
   Mute: 0
