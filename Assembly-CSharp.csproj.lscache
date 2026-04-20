@@ -93,9 +93,11 @@ Assets/Scripts/
  ReferenceManager.cs
  RotateMe.cs
  Secret.cs
+ SecretTrigger.cs
  ShieldPickUp.cs
  ShotGunPelletTrail.cs
  ShotgunShooter.cs
+ TimerThroughGame.cs
  UnlockPanel.cs
  Upgrade.cs
  UpgradePickUp.cs

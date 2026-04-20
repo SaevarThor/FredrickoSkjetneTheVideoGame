@@ -2,6 +2,7 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 using TMPro;
 using System.Collections;
+using UnityEngine.UI;
 
 public class IntroManager : MonoBehaviour
 {
@@ -14,12 +15,35 @@ public class IntroManager : MonoBehaviour
 
     public bool isFirst = false;
 
+    public Button[] skipArray; 
+    private int skipIndex = 0; 
+
     void Start()
     {
         StartCoroutine(TypeText());
 
         if (!isFirst)
             ReferenceManager.Instance.GetComponentInChildren<MusicManager>().Pause();
+
+
+        skipArray[skipIndex].onClick.AddListener(() => Skip()); 
+    }
+
+
+    public void Skip()
+    {
+        skipArray[skipIndex].gameObject.SetActive(false);
+        skipIndex++;
+
+        if (skipArray.Length == skipIndex + 1)
+        {
+            skipArray[skipIndex].onClick.AddListener(() => LoadNextLevel()); 
+            skipArray[skipIndex].gameObject.SetActive(true);
+            return;
+        }
+
+        skipArray[skipIndex].gameObject.SetActive(true);
+        skipArray[skipIndex].onClick.AddListener(() => Skip()); 
     }
 
     IEnumerator TypeText()
@@ -57,7 +81,15 @@ public class IntroManager : MonoBehaviour
         // All texts done, load next scene
         if (!isFirst)
             ReferenceManager.Instance.GetComponentInChildren<MusicManager>().Unpause();
-            
+
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+    }
+
+    private void LoadNextLevel()
+    {
+        if (!isFirst)
+            ReferenceManager.Instance.GetComponentInChildren<MusicManager>().Unpause();
+
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
     }
 }

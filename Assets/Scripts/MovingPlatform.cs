@@ -80,7 +80,10 @@ public class MovingPlatform : MonoBehaviour
         _lastPosition = transform.position;
 
         if (_playerOnPlatform != null)
+        {
+            print ("moving player"); 
             _playerOnPlatform.Move(delta);
+        }
     }
 
     // -------------------------------------------------------------------------

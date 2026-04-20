@@ -18,6 +18,8 @@ public class GameManager : MonoBehaviour
     public List<Upgrade> RareUpgrades = new List<Upgrade>();
     public List<Upgrade> EpicUpgrades = new List<Upgrade>();
 
+    public float GameTime; 
+
 
     public List <Upgrade> ActiveUpgrades = new List<Upgrade>();
 
@@ -141,6 +143,12 @@ public class GameManager : MonoBehaviour
         }
 
         LevelEntries.Add(entry);
+    }
+
+
+    void Update()
+    {
+        GameTime += Time.deltaTime;
     }
 
 }
