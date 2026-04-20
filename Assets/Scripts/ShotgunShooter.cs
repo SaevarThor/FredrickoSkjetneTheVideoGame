@@ -285,12 +285,6 @@ public class ShotgunShooter : MonoBehaviour
         {
             IDamageable target = hit.collider.GetComponent<IDamageable>();
 
-            if (hit.transform.CompareTag("Player"))
-            {
-                Debug.Log("Player just hit himself"); 
-                return;
-            }
-
             if (target != null)
             {
                 if (target.CanTakeDamage())
@@ -428,8 +422,12 @@ public class ShotgunShooter : MonoBehaviour
         }
 
         
-    }   
-
+    }
+    public void ApplyChargeShotMultiplier(float multiplier)
+    {
+        chargeDamageMultiplier = chargeDamageMultiplier * multiplier;
+               
+    }
     public void ApplyChargeUpgrade(float buff)
     {
         chargeTime = chargeTime * (1f - buff);
