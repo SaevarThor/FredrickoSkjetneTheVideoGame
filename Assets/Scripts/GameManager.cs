@@ -33,43 +33,40 @@ public class GameManager : MonoBehaviour
     private void GeneraterCommonUpgrades()
     {
         CommonUpgrades.Add(new FireRateUpgrade(0.05f));
-        CommonUpgrades.Add(new FireRateUpgrade(0.1f));
         CommonUpgrades.Add(new ReloadSpeedUpgrade(0.05f));
-        CommonUpgrades.Add(new ReloadSpeedUpgrade(0.1f));
+        CommonUpgrades.Add(new ReloadSpeedUpgrade(0.075f));
         CommonUpgrades.Add(new LargerMagUpgrade(1));
         CommonUpgrades.Add(new DamageBonusUpgrade(0.1f)); 
-        CommonUpgrades.Add(new FasterPlayerMovementUpgrade(0.05f)); 
-        CommonUpgrades.Add(new ExtraPalletUpgrade(1)); 
         CommonUpgrades.Add(new ShotgunRangeUpgrade(2)); 
         CommonUpgrades.Add(new ShotgunSpreadUpgrade(0.05f)); 
     }
 
     private void GenerateRareUpgrades()
     {
-        RareUpgrades.Add(new FireRateUpgrade(0.2f));
-        RareUpgrades.Add(new FireRateUpgrade(0.25f));
-        RareUpgrades.Add(new ReloadSpeedUpgrade(0.2f));
-        RareUpgrades.Add(new ReloadSpeedUpgrade(0.3f));
+        RareUpgrades.Add(new FireRateUpgrade(0.1f));
+        RareUpgrades.Add(new FireRateUpgrade(0.125f));
+        RareUpgrades.Add(new ReloadSpeedUpgrade(0.1f));
+        RareUpgrades.Add(new ReloadSpeedUpgrade(0.15f));
+        RareUpgrades.Add(new FasterPlayerMovementUpgrade(0.05f));
         RareUpgrades.Add(new FasterPlayerMovementUpgrade(0.1f));
-        RareUpgrades.Add(new FasterPlayerMovementUpgrade(0.2f));
         RareUpgrades.Add(new LargerMagUpgrade(3));
         RareUpgrades.Add(new DamageBonusUpgrade(0.3f));
-        RareUpgrades.Add(new ExtraPalletUpgrade(2));
+        RareUpgrades.Add(new ExtraPalletUpgrade(1));
         RareUpgrades.Add(new ShotgunRangeUpgrade(5)); 
         RareUpgrades.Add(new ShotgunSpreadUpgrade(0.1f));
     }
     
     private void GenerateEpicUpgrades()
     {
-        EpicUpgrades.Add(new FireRateUpgrade(0.3f));
-        EpicUpgrades.Add(new FireRateUpgrade(0.4f));
-        EpicUpgrades.Add(new ReloadSpeedUpgrade(0.4f));
-        EpicUpgrades.Add(new ReloadSpeedUpgrade(0.5f));
-        EpicUpgrades.Add(new FasterPlayerMovementUpgrade(0.3f));
-        EpicUpgrades.Add(new FasterPlayerMovementUpgrade(0.4f));
+        EpicUpgrades.Add(new FireRateUpgrade(0.15f));
+        EpicUpgrades.Add(new FireRateUpgrade(0.2f));
+        EpicUpgrades.Add(new ReloadSpeedUpgrade(0.2f));
+        EpicUpgrades.Add(new ReloadSpeedUpgrade(0.25f));
+        EpicUpgrades.Add(new FasterPlayerMovementUpgrade(0.2f));
+        EpicUpgrades.Add(new FasterPlayerMovementUpgrade(0.25f));
         EpicUpgrades.Add(new LargerMagUpgrade(8)); 
         EpicUpgrades.Add(new DamageBonusUpgrade(0.5f)); 
-        EpicUpgrades.Add(new ExtraPalletUpgrade(4));
+        EpicUpgrades.Add(new ExtraPalletUpgrade(2));
         EpicUpgrades.Add(new ShotgunRangeUpgrade(10)); 
         EpicUpgrades.Add(new ShotgunSpreadUpgrade(0.2f)); 
     }
