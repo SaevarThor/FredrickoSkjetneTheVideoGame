@@ -203,8 +203,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 34
-  m_fontSizeBase: 34
+  m_fontSize: 30
+  m_fontSizeBase: 30
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -467,26 +467,30 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: '::'
   introTexts:
-  - They thought distance was salvation.
-  - They fled the cradle of mankind, crossed the void, and built their shrines beneath
-    the red sky. They whispered new doctrines. Twisted the sacred word. Declared
-    themselves beyond the reach of the Church.
+  - 'The signal came suddenly, and spread fast throughout Earth.
+
+    They thought
+    they were beyond our grasp.'
+  - 'They fled the cradle of mankind, crossed the void, and built their shrines beneath
+    the red sky. They whispered new doctrines. Defiled the signal of God with their
+    own. Twisted the sacred word. Declared themselves beyond the reach of the Church. '
   - They were led astray.
   - 'The Light does not fade with distance.
 
     It does not weaken in the dark between
     worlds.
 
-    It follows.'
+    It follows even the most quiet whisper.'
   - And so do I.
-  - "I am the last sermon they will ever hear.\r\nI am the weight of judgment made
-    manifest.\r\nEach step I take upon their blasphemous soil is a prayer.\r\nEach
-    shell I chamber is a verse.\r\nEach shot\u2026 absolution."
+  - "I am the last sermon they will ever hear.\r\nI am the answer to their heretical
+    signal.\r\nI am the weight of judgment made manifest.\r\nEach step I take upon
+    their blasphemous soil is a prayer.\r\nEach shell I chamber is a verse.\r\nEach
+    shot\u2026 absolution."
   - 'Let their false prophets tremble.
 
     Let their hollow gods remain silent.'
-  - For I carry the only truth that matters
-  - <Faith. Fire. And my shotgun.>
+  - For I will send my own signal back to them
+  - <With Faith. Fire. And my shotgun.>
   textComponent: {fileID: 163875809}
   typingSpeed: 0.06
   pauseBetweenTexts: 1
@@ -1070,9 +1074,9 @@ AudioSource:
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 0}
-  m_Resource: {fileID: 8300000, guid: 84b33f71b29fdad44bc8d88d9b7abc46, type: 3}
+  m_Resource: {fileID: 8300000, guid: 0cdf9937d5ce01c49b4663bb969de438, type: 3}
   m_PlayOnAwake: 1
-  m_Volume: 1
+  m_Volume: 0.5
   m_Pitch: 1
   Loop: 0
   Mute: 0

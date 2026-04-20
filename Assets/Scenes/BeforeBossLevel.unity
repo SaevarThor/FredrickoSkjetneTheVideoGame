@@ -423,19 +423,20 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: '::'
   introTexts:
-  - "This is it.\nNo choir.\nNo congregation.\nJust me\u2026 and the enemy."
-  - "I am at their altar. \nBefore me is no god. \nIt's a mistake, waiting to be
-    corrected."
-  - "It watches me.\nLike I\u2019m supposed to kneel.\nI don\u2019t kneel. I reload."
-  - "It\u2019s big.\nIt\u2019s ancient.\nIt\u2019s angry.\n<So am I.>"
+  - "This is it.\r\nNo choir.\r\nNo congregation.\r\nJust me\u2026 and the enemy."
+  - "I stand on their stage.. \r\nBefore me is no god. \r\nIt's a misfired signal
+    waiting to be silenced."
+  - "It watches me.\r\nLike I\u2019m supposed to kneel.\r\nI don\u2019t know how
+    to kneel. "
+  - "It\u2019s big.\r\nIt\u2019s ancient.\r\nIt\u2019s angry.\r\n<So am I.>"
   - 'It offers me salvation.
 
     I brought my own. <Twelve gauge.>'
-  - "No backup.\nNo miracles coming.\nJust one priest.\nOne shotgun.\nAnd one false
-    god about to learn\n\n<When you reach far enough into the dark\u2026\nsometimes
+  - "No backup.\r\nNo miracles coming.\r\nJust one priest.\r\nOne shotgun.\r\nAnd
+    one false god about to learn\r\n\r\n<When you reach far enough into the dark\u2026\r\nsometimes
     the Light hits back.>"
   textComponent: {fileID: 163875809}
-  typingSpeed: 0.09
+  typingSpeed: 0.08
   pauseBetweenTexts: 1
   waitBeforeLoadingNextScene: 0
   isFirst: 0
@@ -499,9 +500,9 @@ AudioSource:
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 0}
-  m_Resource: {fileID: 8300000, guid: 02590be0f442c0343a4bc129987703d7, type: 3}
+  m_Resource: {fileID: 8300000, guid: 829f3101486342b4e88eb30577220fd0, type: 3}
   m_PlayOnAwake: 1
-  m_Volume: 0.165
+  m_Volume: 0.472
   m_Pitch: 1
   Loop: 0
   Mute: 0
