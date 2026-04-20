@@ -1,3 +1,5 @@
+using TMPro;
+using TreeEditor;
 using Unity.VisualScripting;
 using UnityEngine;
 
@@ -24,7 +26,20 @@ public class EnemyHealth : MonoBehaviour, IDamageable
     }
     private void Start()
     {
-        CurrentHealth = MaxHealth;
+        var run = ReferenceManager.Instance.RoundNumber; 
+
+        if (run > 1)
+        {
+            var additionaHealth = 1;
+
+            for (int i = 1; i < run; i++)
+            {
+                additionaHealth *= 10;  
+            }
+
+            MaxHealth *= additionaHealth; 
+        }
+            CurrentHealth = MaxHealth;
     }
 
     public bool CanTakeDamage()

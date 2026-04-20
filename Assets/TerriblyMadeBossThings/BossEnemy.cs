@@ -137,7 +137,7 @@ public class BossEnemy : MonoBehaviour
         if (healthBarSlider != null)
         {
             healthBarSlider.minValue = 0f;
-            healthBarSlider.maxValue = maxHealth;
+            healthBarSlider.maxValue = enemyHealth.MaxHealth;
             healthBarSlider.value = maxHealth;
         }
 
@@ -153,6 +153,11 @@ public class BossEnemy : MonoBehaviour
 
     void Update()
     {
+        if (healthBarSlider.maxValue != enemyHealth.MaxHealth)
+        {
+            healthBarSlider.maxValue = enemyHealth.MaxHealth; 
+        }
+
         healthBarSlider.value = enemyHealth.CurrentHealth;
 
         if (isDead) return;

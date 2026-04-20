@@ -10,6 +10,8 @@ public class ReferenceManager : MonoBehaviour
 
     public MessagingManager mManager;
 
+    public int RoundNumber = 1;
+
 
     private void Awake()
     {

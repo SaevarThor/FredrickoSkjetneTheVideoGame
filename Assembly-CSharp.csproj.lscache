@@ -111,6 +111,7 @@ Assets/Scripts/
   ShotgunRangeUpgrade.cs
   ShotgunSpreadUpgrade.cs
  WeaponSway.cs
+ WinSceneScript.cs
 Assets/
  scrumbus.cs
  TerriblyMadeBossThings/BossEnemy.cs
