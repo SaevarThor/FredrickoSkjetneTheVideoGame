@@ -54,6 +54,8 @@ public class EnemyShooter : MonoBehaviour
 
     private void Update()
     {
+
+        if (_player == null) _player = ReferenceManager.Instance.PlayerTransform; 
         if (!_engaged || _player == null || _isWindingUp) return;
 
         _fireTimer -= Time.deltaTime;

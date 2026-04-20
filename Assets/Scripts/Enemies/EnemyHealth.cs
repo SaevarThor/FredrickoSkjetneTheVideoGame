@@ -1,7 +1,5 @@
 using System.Collections;
-using TMPro;
-using TreeEditor;
-using Unity.VisualScripting;
+
 using UnityEngine;
 
 public class EnemyHealth : MonoBehaviour, IDamageable
