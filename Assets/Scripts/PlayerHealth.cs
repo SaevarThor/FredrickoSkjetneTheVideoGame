@@ -15,6 +15,7 @@ public class PlayerHealth : MonoBehaviour, IDamageable
     [SerializeField] private AudioClip[] hitClips; 
     [SerializeField] private AudioClip[] shieldHitClips;
 
+
     private void Start()
     {
         CurrentHealth = 100;
@@ -89,6 +90,7 @@ public class PlayerHealth : MonoBehaviour, IDamageable
     private void Die()
     {
         Debug.Log("Player died!");
+        GameObject.Find("DeathPanel").GetComponent<DieVisuals>().StartDeath(transform.position);
         // Implement player death behavior (e.g., respawn, game over screen)
     }
 }

@@ -10237,6 +10237,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4377731051775864022, guid: 10928a36fb4d7e24890a57de90f675fb, type: 3}
+      propertyPath: AmmoText
+      value: 
+      objectReference: {fileID: 1321263325}
     - target: {fileID: 5902217332342858979, guid: 10928a36fb4d7e24890a57de90f675fb, type: 3}
       propertyPath: healthText
       value: 
@@ -11759,6 +11763,17 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1313412717}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!114 &1321263325 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 871531151807441954, guid: 855fe730c280b1b46bd4688128df498f, type: 3}
+  m_PrefabInstance: {fileID: 62993647}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Unity.TextMeshPro::TMPro.TextMeshProUGUI
 --- !u!1 &1339359860
 GameObject:
   m_ObjectHideFlags: 0

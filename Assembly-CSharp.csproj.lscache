@@ -63,6 +63,7 @@ Assets/Scripts/
  ChestShop.cs
  DamagePlayerTrigger.cs
  DeathTrigger.cs
+ DieVisuals.cs
  EndTheLevel.cs
  Enemies/
   BaseEnemyAI.cs
