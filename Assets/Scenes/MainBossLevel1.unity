@@ -14659,6 +14659,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Bossboy
       objectReference: {fileID: 0}
+    - target: {fileID: 4473342904577054200, guid: dfabfb6449d4cad489d960c8ab189849, type: 3}
+      propertyPath: MaxHealth
+      value: 25000
+      objectReference: {fileID: 0}
     - target: {fileID: 7808314708867025663, guid: dfabfb6449d4cad489d960c8ab189849, type: 3}
       propertyPath: m_Enabled
       value: 1
