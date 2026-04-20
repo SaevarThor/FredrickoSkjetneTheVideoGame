@@ -395,6 +395,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::EnemyHealth
   MaxHealth: 100
   Score: 20
+  hitSprite: {fileID: 21300000, guid: bf44c4673301994428def1e6bfe9d84f, type: 3}
+  spriteRenderer: {fileID: 1113619870505624461}
   bloodExplosion: {fileID: 2845576331320081517, guid: 05b1eb61edd25834e960e6de09bc32d9, type: 3}
   shieldVisuals: {fileID: 6675097453467369345}
 --- !u!195 &1418725239732969558

@@ -1,3 +1,4 @@
+using System.Collections;
 using TMPro;
 using TreeEditor;
 using Unity.VisualScripting;
@@ -8,12 +9,14 @@ public class EnemyHealth : MonoBehaviour, IDamageable
 
     public float MaxHealth = 100f;
     public float CurrentHealth { get; private set; }
-
     public float Score = 20f; 
-
     private bool isDead = false;
-
     private bool isInvulnerable = false;
+
+    [SerializeField] private Sprite hitSprite; 
+    private Sprite normalSprite; 
+
+    [SerializeField] private SpriteRenderer spriteRenderer; 
 
     [SerializeField] private GameObject bloodExplosion;
     [SerializeField] private GameObject shieldVisuals;
@@ -23,6 +26,8 @@ public class EnemyHealth : MonoBehaviour, IDamageable
         if (shieldVisuals != null) {
             shieldVisuals.GetComponent<SpriteRenderer>().enabled = false;
         }
+
+        normalSprite = spriteRenderer.sprite; 
     }
     private void Start()
     {
@@ -58,6 +63,14 @@ public class EnemyHealth : MonoBehaviour, IDamageable
             CurrentHealth = 0;
             Die();
         }
+
+        if (hitSprite != null)
+        {
+            spriteRenderer.sprite = hitSprite; 
+
+            StopCoroutine(BackToDefault()); 
+            StartCoroutine(BackToDefault()); 
+        }
     }
 
     
@@ -73,6 +86,12 @@ public class EnemyHealth : MonoBehaviour, IDamageable
         isInvulnerable = false;
     }
 
+
+    private IEnumerator BackToDefault()
+    {
+        yield return new WaitForSeconds(0.5f); 
+        spriteRenderer.sprite = normalSprite; 
+    }
 
 
 
