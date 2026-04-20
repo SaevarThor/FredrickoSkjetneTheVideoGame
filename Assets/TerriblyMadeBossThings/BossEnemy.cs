@@ -121,6 +121,7 @@ public class BossEnemy : MonoBehaviour
         groundY = transform.position.y;
 
         maxHealth = enemyHealth.MaxHealth; 
+        enemyHealth.CurrentHealth = maxHealth; 
 
         // Initialize health
         currentHealth = maxHealth;
@@ -165,7 +166,10 @@ public class BossEnemy : MonoBehaviour
         HandleMovement();
         HandleFlying();
         HandleSpin();
-        CheckPhaseTransition();
+       // CheckPhaseTransition();
+
+        if (enemyHealth.CurrentHealth <= 0f)
+            Die();
 
     }
 
@@ -241,7 +245,7 @@ public class BossEnemy : MonoBehaviour
         }
     }
 
-    private void Oestroy()
+    private void OnDestroy()
     {
         healthBarSlider.gameObject.SetActive(false);         
     }
@@ -291,6 +295,8 @@ public class BossEnemy : MonoBehaviour
     void EnterPhase2()
     {
         isPhase2 = true;
+
+        enemyHealth.CurrentHealth = enemyHealth.MaxHealth;
         Debug.Log("[BossEnemy] ENTERING PHASE 2!");
 
         render.sprite = Phase2Sprite;
@@ -331,12 +337,18 @@ public class BossEnemy : MonoBehaviour
 
         Debug.Log($"[BossEnemy] Took {amount} damage. Health: {currentHealth}/{maxHealth}");
 
-        if (currentHealth <= 0f)
-            Die();
+
     }
 
     void Die()
     {
+        if (!isPhase2)
+        {
+            EnterPhase2();
+            return;
+        }
+
+
         isDead = true;
         agent.isStopped = true;
         StopAllCoroutines();

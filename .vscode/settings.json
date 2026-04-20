@@ -67,6 +67,6 @@
         "*.sln": "*.csproj",
         "*.slnx": "*.csproj"
     },
-    "dotnet.defaultSolution": "FredrickoSkjetneTheVideoGame.slnx",
+    "dotnet.defaultSolution": "ShotgunZaddy.slnx",
     "dotnet.enableWorkspaceBasedDevelopment": false
 }

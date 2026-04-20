@@ -8,7 +8,7 @@ public class EnemyHealth : MonoBehaviour, IDamageable
 {
 
     public float MaxHealth = 100f;
-    public float CurrentHealth { get; private set; }
+    public float CurrentHealth { get; set; }
     public float Score = 20f; 
     private bool isDead = false;
     private bool isInvulnerable = false;
@@ -21,13 +21,16 @@ public class EnemyHealth : MonoBehaviour, IDamageable
     [SerializeField] private GameObject bloodExplosion;
     [SerializeField] private GameObject shieldVisuals;
 
+    public bool isBoss; 
+
     private void Awake()
     {
         if (shieldVisuals != null) {
             shieldVisuals.GetComponent<SpriteRenderer>().enabled = false;
         }
 
-        normalSprite = spriteRenderer.sprite; 
+        if (spriteRenderer!= null)
+            normalSprite = spriteRenderer.sprite; 
     }
     private void Start()
     {
@@ -97,6 +100,7 @@ public class EnemyHealth : MonoBehaviour, IDamageable
 
     private void Die()
     {
+        if (isBoss) return; 
         isDead = true;
         if (bloodExplosion != null)
         {

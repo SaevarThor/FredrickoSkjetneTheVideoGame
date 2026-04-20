@@ -276,8 +276,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::EnemyHealth
   MaxHealth: 1000
   Score: 20
+  hitSprite: {fileID: 0}
+  spriteRenderer: {fileID: 0}
   bloodExplosion: {fileID: 2845576331320081517, guid: 05b1eb61edd25834e960e6de09bc32d9, type: 3}
   shieldVisuals: {fileID: 0}
+  isBoss: 0
 --- !u!1001 &8874800
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -7578,8 +7581,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::EnemyHealth
   MaxHealth: 1000
   Score: 20
+  hitSprite: {fileID: 0}
+  spriteRenderer: {fileID: 0}
   bloodExplosion: {fileID: 2845576331320081517, guid: 05b1eb61edd25834e960e6de09bc32d9, type: 3}
   shieldVisuals: {fileID: 0}
+  isBoss: 0
 --- !u!4 &1022182254 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 2420899538579493032, guid: 19c81b18da8d2cc4c8f9ed0a930ac1ea, type: 3}
@@ -10038,8 +10044,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::EnemyHealth
   MaxHealth: 1000
   Score: 20
+  hitSprite: {fileID: 0}
+  spriteRenderer: {fileID: 0}
   bloodExplosion: {fileID: 2845576331320081517, guid: 05b1eb61edd25834e960e6de09bc32d9, type: 3}
   shieldVisuals: {fileID: 0}
+  isBoss: 0
 --- !u!1001 &1373749415
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -10619,8 +10628,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::EnemyHealth
   MaxHealth: 1000
   Score: 20
+  hitSprite: {fileID: 0}
+  spriteRenderer: {fileID: 0}
   bloodExplosion: {fileID: 2845576331320081517, guid: 05b1eb61edd25834e960e6de09bc32d9, type: 3}
   shieldVisuals: {fileID: 0}
+  isBoss: 0
 --- !u!1001 &1449359495
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -10724,8 +10736,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::EnemyHealth
   MaxHealth: 1000
   Score: 20
+  hitSprite: {fileID: 0}
+  spriteRenderer: {fileID: 0}
   bloodExplosion: {fileID: 2845576331320081517, guid: 05b1eb61edd25834e960e6de09bc32d9, type: 3}
   shieldVisuals: {fileID: 0}
+  isBoss: 0
 --- !u!1001 &1471529786
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -11210,8 +11225,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::EnemyHealth
   MaxHealth: 1000
   Score: 20
+  hitSprite: {fileID: 0}
+  spriteRenderer: {fileID: 0}
   bloodExplosion: {fileID: 2845576331320081517, guid: 05b1eb61edd25834e960e6de09bc32d9, type: 3}
   shieldVisuals: {fileID: 0}
+  isBoss: 0
 --- !u!1 &1548338010
 GameObject:
   m_ObjectHideFlags: 0
@@ -13255,8 +13273,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::EnemyHealth
   MaxHealth: 1000
   Score: 20
+  hitSprite: {fileID: 0}
+  spriteRenderer: {fileID: 0}
   bloodExplosion: {fileID: 2845576331320081517, guid: 05b1eb61edd25834e960e6de09bc32d9, type: 3}
   shieldVisuals: {fileID: 0}
+  isBoss: 0
 --- !u!1 &1910597479 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 6173250277935052763, guid: efde743afcff88744887c62d4c3b6b17, type: 3}
@@ -13669,8 +13690,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::EnemyHealth
   MaxHealth: 1000
   Score: 20
+  hitSprite: {fileID: 0}
+  spriteRenderer: {fileID: 0}
   bloodExplosion: {fileID: 2845576331320081517, guid: 05b1eb61edd25834e960e6de09bc32d9, type: 3}
   shieldVisuals: {fileID: 0}
+  isBoss: 0
 --- !u!1001 &1951370792
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -14355,8 +14379,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::EnemyHealth
   MaxHealth: 1000
   Score: 20
+  hitSprite: {fileID: 0}
+  spriteRenderer: {fileID: 0}
   bloodExplosion: {fileID: 2845576331320081517, guid: 05b1eb61edd25834e960e6de09bc32d9, type: 3}
   shieldVisuals: {fileID: 0}
+  isBoss: 0
 --- !u!1001 &2039065137
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -14785,8 +14812,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::EnemyHealth
   MaxHealth: 1000
   Score: 20
+  hitSprite: {fileID: 0}
+  spriteRenderer: {fileID: 0}
   bloodExplosion: {fileID: 2845576331320081517, guid: 05b1eb61edd25834e960e6de09bc32d9, type: 3}
   shieldVisuals: {fileID: 0}
+  isBoss: 0
 --- !u!1 &2109689450
 GameObject:
   m_ObjectHideFlags: 0
@@ -15060,11 +15090,11 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 2228659735198224395, guid: dfabfb6449d4cad489d960c8ab189849, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 2.88971
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 2228659735198224395, guid: dfabfb6449d4cad489d960c8ab189849, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 12.25
+      value: 12.3
       objectReference: {fileID: 0}
     - target: {fileID: 2228659735198224395, guid: dfabfb6449d4cad489d960c8ab189849, type: 3}
       propertyPath: m_LocalPosition.z
@@ -15113,6 +15143,10 @@ PrefabInstance:
     - target: {fileID: 3955862700541909026, guid: dfabfb6449d4cad489d960c8ab189849, type: 3}
       propertyPath: m_Name
       value: Bossboy
+      objectReference: {fileID: 0}
+    - target: {fileID: 4473342904577054200, guid: dfabfb6449d4cad489d960c8ab189849, type: 3}
+      propertyPath: isBoss
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4473342904577054200, guid: dfabfb6449d4cad489d960c8ab189849, type: 3}
       propertyPath: MaxHealth

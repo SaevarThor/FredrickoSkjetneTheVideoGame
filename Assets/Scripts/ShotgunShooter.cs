@@ -285,6 +285,12 @@ public class ShotgunShooter : MonoBehaviour
         {
             IDamageable target = hit.collider.GetComponent<IDamageable>();
 
+            if (hit.transform.CompareTag("Player"))
+            {
+                Debug.Log("Player just hit himself"); 
+                return;
+            }
+
             if (target != null)
             {
                 if (target.CanTakeDamage())

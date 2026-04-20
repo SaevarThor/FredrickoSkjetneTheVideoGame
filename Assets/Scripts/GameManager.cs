@@ -74,9 +74,13 @@ public class GameManager : MonoBehaviour
     [ContextMenu("Test Upgrade")]
     public void TestUpgrade()
     {
-        var up = new LargerMagUpgrade(8); 
-
-        up.ApplyUpgrade();
+        for (int i = 0; i < 4; i++)
+        {
+            foreach(var item in EpicUpgrades)
+            {
+                item.ApplyUpgrade();
+            }
+        }
     }
 
     public Upgrade GetCommonUpgrade(bool takeChest = false)
