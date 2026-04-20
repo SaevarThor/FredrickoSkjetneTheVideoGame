@@ -29,6 +29,9 @@ public class BossEnemy : MonoBehaviour
     // INSPECTOR SETTINGS
     // ─────────────────────────────────────────────
 
+    public SpriteRenderer render; 
+    public Sprite Phase2Sprite; 
+
     [Header("References")]
     [Tooltip("Drag your Player GameObject here.")]
     public Transform player;
@@ -38,7 +41,7 @@ public class BossEnemy : MonoBehaviour
 
     [Header("Health")]
     [Tooltip("Total health points for the boss.")]
-    public float maxHealth = 500f;
+    public float maxHealth = 5000f;
 
     [Header("Movement")]
     [Tooltip("How fast the boss chases the player on the ground plane.")]
@@ -102,6 +105,8 @@ public class BossEnemy : MonoBehaviour
     private float currentFireRate;
     private float currentSpinSpeed;
 
+    private EnemyHealth enemyHealth; 
+
     // ─────────────────────────────────────────────
     // UNITY LIFECYCLE
     // ─────────────────────────────────────────────
@@ -109,9 +114,11 @@ public class BossEnemy : MonoBehaviour
     void Start()
     {
         agent = GetComponent<NavMeshAgent>();
-
+        enemyHealth = GetComponent<EnemyHealth>();
         // Store the spawn Y as our "ground level" for floating
         groundY = transform.position.y;
+
+        maxHealth = enemyHealth.MaxHealth; 
 
         // Initialize health
         currentHealth = maxHealth;
@@ -260,7 +267,7 @@ public class BossEnemy : MonoBehaviour
 
     void CheckPhaseTransition()
     {
-        if (!isPhase2 && currentHealth <= maxHealth * phase2Threshold)
+        if (!isPhase2 && enemyHealth.CurrentHealth <= maxHealth * phase2Threshold)
         {
             EnterPhase2();
         }
@@ -270,6 +277,8 @@ public class BossEnemy : MonoBehaviour
     {
         isPhase2 = true;
         Debug.Log("[BossEnemy] ENTERING PHASE 2!");
+
+        render.sprite = Phase2Sprite;
 
         // Speed up fire rate and spin
         currentFireRate = fireRate / phase2FireRateMultiplier;

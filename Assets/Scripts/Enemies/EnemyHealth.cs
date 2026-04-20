@@ -27,6 +27,11 @@ public class EnemyHealth : MonoBehaviour, IDamageable
         CurrentHealth = MaxHealth;
     }
 
+    public bool CanTakeDamage()
+    {
+        return !isInvulnerable; 
+    }
+
     public void TakeDamage(float amount)
     {
         if (isDead) return;

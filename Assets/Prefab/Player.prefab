@@ -168,8 +168,13 @@ MonoBehaviour:
   hitLayers:
     serializedVersion: 2
     m_Bits: 115
+  damageNumbers: {fileID: 3324933766437814037, guid: b8549f7110d54694cb0cdf80ac21939e, type: 3}
+  blockedByShield: {fileID: 3324933766437814037, guid: 86a6e9f07b11a0346b920700d7cb275a, type: 3}
   pelletTrail: {fileID: 157929636689130908}
   AmmoText: {fileID: 0}
+  anim: {fileID: 7415328699770527778}
+  reloadAnim: {fileID: -1713325850127434092, guid: 5f663b2c44780cfb0ac123d6dcec1535, type: 3}
+  shootAnim: {fileID: -2674958278859614444, guid: 5f663b2c44780cfb0ac123d6dcec1535, type: 3}
 --- !u!114 &157929636689130908
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1536,7 +1541,7 @@ PrefabInstance:
       objectReference: {fileID: 2100000, guid: 9218f840cd8566d4284d1de087d03254, type: 2}
     - target: {fileID: 9026050636710836500, guid: 18fd44ec8e06633fc94d4ab833996881, type: 3}
       propertyPath: m_Enabled
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -1583,5 +1588,10 @@ MonoBehaviour:
 --- !u!4 &5316819064947802380 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 5936678706431891514, guid: 18fd44ec8e06633fc94d4ab833996881, type: 3}
+  m_PrefabInstance: {fileID: 1993532303917357366}
+  m_PrefabAsset: {fileID: 0}
+--- !u!95 &7415328699770527778 stripped
+Animator:
+  m_CorrespondingSourceObject: {fileID: 9026050636710836500, guid: 18fd44ec8e06633fc94d4ab833996881, type: 3}
   m_PrefabInstance: {fileID: 1993532303917357366}
   m_PrefabAsset: {fileID: 0}

@@ -55,11 +55,13 @@ TemporaryDependencyNodeTargetIdentifier=netstandard2.1
 Assets/Scripts/
  AutoDestroy.cs
  BillboardSprite.cs
+ BossLevel.cs
  CameraShake.cs
  checkpoint.cs
  ChestEntry.cs
  ChestOpener.cs
  ChestShop.cs
+ DamagePlayerTrigger.cs
  DeathTrigger.cs
  EndTheLevel.cs
  Enemies/
@@ -71,7 +73,7 @@ Assets/Scripts/
   EnemyGun.cs
   EnemyHealth.cs
   EnemyShooter.cs
-  EnemySupport.cs
+  SupportBeam.cs
  EyeController.cs
  GameManager.cs
  HealthPickUp.cs
@@ -88,6 +90,7 @@ Assets/Scripts/
  PS2PostProcess.cs
  ReferenceManager.cs
  RotateMe.cs
+ Secret.cs
  ShieldPickUp.cs
  ShotGunPelletTrail.cs
  ShotgunShooter.cs
@@ -103,6 +106,7 @@ Assets/Scripts/
  WeaponSway.cs
 Assets/
  scrumbus.cs
+ TerriblyMadeBossThings/BossEnemy.cs
  TutorialInfo/Scripts/Readme.cs
  WiggleWiggle.cs
 Temp/obj/Assembly-CSharp/.NETStandard,Version=v2.1.AssemblyAttributes.cs

@@ -1,4 +1,5 @@
 using System.Collections;
+using System.Xml.Serialization;
 using TMPro;
 using UnityEngine;
 
@@ -57,6 +58,8 @@ public class ShotgunShooter : MonoBehaviour
     [SerializeField] private GameObject bulletHolePrefab;
     [SerializeField] private GameObject bloodHit;
     [SerializeField] private LayerMask hitLayers = ~0;
+    [SerializeField] private GameObject damageNumbers; 
+    [SerializeField] private GameObject blockedByShield; 
 
     [Header("Pellet Trails")]
     [SerializeField] private ShotgunPelletTrail pelletTrail;
@@ -79,6 +82,12 @@ public class ShotgunShooter : MonoBehaviour
     // Expose charge progress for UI/VFX if needed
     public float ChargeProgress => _chargeProgress;
     public bool IsFullyCharged  => _chargeProgress >= 1f;
+
+
+    [SerializeField] private Animator anim;
+    [SerializeField] private AnimationClip reloadAnim; 
+    [SerializeField] private AnimationClip shootAnim; 
+
 
     private void Awake()
     {
@@ -203,6 +212,10 @@ public class ShotgunShooter : MonoBehaviour
         PlaySound(fireSound);
         StartCoroutine(ShowMuzzleFlash(false));
 
+        float speedMultiplier = shootAnim.length / fireRate;
+        anim.SetFloat("FireRate", speedMultiplier);
+        anim.SetTrigger("isShooting"); 
+
         _recoilOffset -= recoilKick;
 
         if (_weaponSway != null)
@@ -274,14 +287,25 @@ public class ShotgunShooter : MonoBehaviour
 
             if (target != null)
             {
-                target.TakeDamage(pelletDamage);
-
-                if (bloodHit != null)
+                if (target.CanTakeDamage())
                 {
-                    GameObject blood = Instantiate(bloodHit,
-                        hit.point + hit.normal * 0.01f,
-                        Quaternion.LookRotation(hit.normal));
-                    Destroy(blood, 1f);
+                    target.TakeDamage(pelletDamage);
+
+                    if (bloodHit != null)
+                    {
+                        GameObject blood = Instantiate(bloodHit,
+                            hit.point + hit.normal * 0.01f,
+                            Quaternion.LookRotation(-hit.normal));
+                        Destroy(blood, 1f);
+
+                        GameObject g = Instantiate(damageNumbers, hit.point + hit.normal * 0.01f, Quaternion.identity); 
+                        g.GetComponentInChildren<TMP_Text>().text = $" -{damage}"; 
+                        
+                    }
+
+                } else
+                {
+                   Instantiate(blockedByShield, hit.point + hit.normal * 0.01f, Quaternion.identity); 
                 }
             }
             else if (bulletHolePrefab != null)
@@ -343,6 +367,10 @@ public class ShotgunShooter : MonoBehaviour
         _isReloading = true;
         //PlaySound(reloadSound);
 
+        float speedMultiplier = reloadAnim.length / reloadTime;
+        anim.SetFloat("ReloadSpeed", speedMultiplier);
+        anim.SetTrigger("isRejuicing"); 
+
         if (_weaponSway != null)
         {
             _weaponSway.reloadDipDuration = reloadTime;
@@ -389,8 +417,10 @@ public class ShotgunShooter : MonoBehaviour
         {
             reloadTime = 0.1f;
         }
+
+        
     }   
-    public void ApplyDamageBuff(float buff)                => damage     = damage * (1f - buff);   
+    public void ApplyDamageBuff(float buff)                => damage     = damage * (1f + buff);   
     public void ApplyMagSizeUpgrade(float additionalShots)
     {
         maxAmmo   += Mathf.RoundToInt(additionalShots);
@@ -433,4 +463,5 @@ public class ShotgunShooter : MonoBehaviour
 public interface IDamageable
 {
     void TakeDamage(float amount);
+    bool CanTakeDamage(); 
 }

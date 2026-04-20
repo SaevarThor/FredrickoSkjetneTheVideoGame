@@ -20,6 +20,11 @@ public class PlayerHealth : MonoBehaviour, IDamageable
         CurrentHealth = 100;
     }
 
+    public bool CanTakeDamage()
+    {
+        return true; 
+    }
+
     public void TakeDamage(float amount)
     {
 

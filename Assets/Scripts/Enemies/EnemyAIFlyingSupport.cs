@@ -35,6 +35,8 @@ public class EnemyAIFlyingSupport : BaseEnemyAI
     [SerializeField] private float yPhase = 1.2f;       // the pattern it starts
     [SerializeField] private float zPhase = 2.4f;
 
+    private SupportBeam _supportBeam;
+
     public enum FlyState { Protecting, Wandering, MoveToAlly }
     public FlyState _flyState = FlyState.Wandering;
 
@@ -56,6 +58,8 @@ public class EnemyAIFlyingSupport : BaseEnemyAI
         EnterCombat();
         PickWanderTarget();
         _switchAllyTimer = switchAllyMaxTime;
+
+        _supportBeam = GetComponent<SupportBeam>();
     }
 
     // -------------------------------------------------------------------------
@@ -77,11 +81,12 @@ public class EnemyAIFlyingSupport : BaseEnemyAI
 
     public override void ExitCombat()
     {
-        Debug.Log("exit combat");
+        if (_supportBeam != null)
+            _supportBeam.ClearTarget();
+
         base.ExitCombat();
         _currentAlly = null;
         _flyState = FlyState.Wandering;
-        //PickWanderTarget();
     }
 
     // -------------------------------------------------------------------------
@@ -120,10 +125,15 @@ public class EnemyAIFlyingSupport : BaseEnemyAI
         if (Vector3.Distance(transform.position, _moveTarget) < wanderArrivalDist)
         {
             _currentAlly.GetComponent<EnemyHealth>().MakeInvulnerable();
+
+            if (_supportBeam != null)
+                _supportBeam.SetTarget(_currentAlly);
+
             if (!particle.isPlaying)
             {
                 particle.Play();
             }
+
             _flyState = FlyState.Protecting;
         }
     }
@@ -191,6 +201,10 @@ public class EnemyAIFlyingSupport : BaseEnemyAI
     // -------------------------------------------------------------------------
     private void TryPickAlly()
     {
+        //Clearing beam if exists
+        if (_supportBeam != null)
+            _supportBeam.ClearTarget();
+
         // Find all enemies in range, excluding self
         Collider[] hits = Physics.OverlapSphere(transform.position, allySearchRadius);
         List<Transform> candidates = new List<Transform>();
@@ -204,7 +218,7 @@ public class EnemyAIFlyingSupport : BaseEnemyAI
 
         if (candidates.Count == 0)
         {
-            Debug.Log("no allies to support");
+            //Debug.Log("no allies to support");
             _currentAlly = null;
             _flyState = FlyState.Wandering;
             return;
@@ -237,6 +251,9 @@ public class EnemyAIFlyingSupport : BaseEnemyAI
     private void OnDestroy()
     {
         _currentAlly.GetComponent<EnemyHealth>().MakeVulnerable();
+
+        if (_supportBeam != null)
+            _supportBeam.ClearTarget();
     }
 
 

@@ -101,10 +101,10 @@ GameObject:
   m_Component:
   - component: {fileID: 2228659735198224395}
   - component: {fileID: 2861227548561528343}
+  - component: {fileID: 2863708810289518895}
   - component: {fileID: 3881813257118106287}
   - component: {fileID: 4408264268002662306}
   - component: {fileID: 2918561525123782587}
-  - component: {fileID: 2863708810289518895}
   - component: {fileID: 2835483394634477440}
   m_Layer: 0
   m_Name: Bossboy
@@ -137,6 +137,37 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3955862700541909026}
   m_Mesh: {fileID: 10207, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!114 &2863708810289518895
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3955862700541909026}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 00b2d8bc9f5a25747a63d1a3c5368999, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::BossEnemy
+  render: {fileID: 0}
+  Phase2Sprite: {fileID: 0}
+  player: {fileID: 0}
+  fireballPrefab: {fileID: 2119873582266454563, guid: bb5c975bfa608f54bbdf5246af4f798a, type: 3}
+  maxHealth: 500
+  moveSpeed: 4
+  attackRange: 8
+  floatHeight: 3
+  bobAmplitude: 1.2
+  bobSpeed: 1.5
+  spinSpeed: 90
+  fireballsPerRing: 8
+  fireballSpeed: 50
+  fireRate: 1.5
+  fireballSpawnPoint: {fileID: 0}
+  phase2Threshold: 0.4
+  phase2FireRateMultiplier: 1.5
+  phase2SpinMultiplier: 2
+  healthBarSlider: {fileID: 0}
 --- !u!23 &3881813257118106287
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -229,35 +260,6 @@ NavMeshAgent:
   m_BaseOffset: 0.49999997
   m_WalkableMask: 4294967295
   m_ObstacleAvoidanceType: 4
---- !u!114 &2863708810289518895
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3955862700541909026}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 00b2d8bc9f5a25747a63d1a3c5368999, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::BossEnemy
-  player: {fileID: 0}
-  fireballPrefab: {fileID: 2119873582266454563, guid: bb5c975bfa608f54bbdf5246af4f798a, type: 3}
-  maxHealth: 500
-  moveSpeed: 4
-  attackRange: 8
-  floatHeight: 3
-  bobAmplitude: 1.2
-  bobSpeed: 1.5
-  spinSpeed: 90
-  fireballsPerRing: 8
-  fireballSpeed: 50
-  fireRate: 1.5
-  fireballSpawnPoint: {fileID: 0}
-  phase2Threshold: 0.4
-  phase2FireRateMultiplier: 1.5
-  phase2SpinMultiplier: 2
-  healthBarSlider: {fileID: 0}
 --- !u!54 &2835483394634477440
 Rigidbody:
   m_ObjectHideFlags: 0

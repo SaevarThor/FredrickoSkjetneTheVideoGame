@@ -71,36 +71,39 @@ public class GameManager : MonoBehaviour
         up.ApplyUpgrade();
     }
 
-    public Upgrade GetCommonUpgrade()
+    public Upgrade GetCommonUpgrade(bool takeChest = false)
     {
         if (CommonUpgrades.Count == 0) return null;
 
         Upgrade upgrade = CommonUpgrades[Random.Range(0, CommonUpgrades.Count)];
         ActiveUpgrades.Add(upgrade);
         upgrade.ApplyUpgrade();
-        CommonChestsOwned--; 
+        if (takeChest)
+            CommonChestsOwned--; 
         return upgrade;
     }
 
-    public Upgrade GetRareUpgrade()
+    public Upgrade GetRareUpgrade(bool takeChest = false)
     {
         if (RareUpgrades.Count == 0) return null;
 
         Upgrade upgrade = RareUpgrades[Random.Range(0, RareUpgrades.Count)];
         ActiveUpgrades.Add(upgrade);
         upgrade.ApplyUpgrade();
-        RareChestsOwned--;
+        if (takeChest)
+            RareChestsOwned--;
         return upgrade;
     }
 
-    public Upgrade GetEpicUpgrade()
+    public Upgrade GetEpicUpgrade(bool takeChest = false)
     {
         if (EpicUpgrades.Count == 0) return null;
 
         Upgrade upgrade = EpicUpgrades[Random.Range(0, EpicUpgrades.Count)];
         ActiveUpgrades.Add(upgrade);
         upgrade.ApplyUpgrade();
-        EpicChestsOwned--;
+        if (takeChest)
+            EpicChestsOwned--;
         return upgrade;
     }
 

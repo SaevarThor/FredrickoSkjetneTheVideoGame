@@ -65,7 +65,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: -990
+  m_text: Blocked!
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 5a4418ce1c807d54cabd4aebaa4736fd, type: 2}
   m_sharedMaterial: {fileID: 5568404440583507632, guid: 5a4418ce1c807d54cabd4aebaa4736fd, type: 2}
@@ -74,8 +74,8 @@ MonoBehaviour:
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4278194175
-  m_fontColor: {r: 1, g: 0.059297115, b: 0, a: 1}
+    rgba: 4294903296
+  m_fontColor: {r: 0, g: 0.02520442, b: 1, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
@@ -151,9 +151,9 @@ GameObject:
   - component: {fileID: 8317544976641466317}
   - component: {fileID: 7301371700718604991}
   - component: {fileID: -424061354635493981}
-  - component: {fileID: -2182231688705517790}
+  - component: {fileID: -7562039992037362726}
   m_Layer: 5
-  m_Name: FloatingDamageUI
+  m_Name: FloatingDamageBlockedUI
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -277,7 +277,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cea17b11a17667b4eaf5570a0d9859cc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::BillboardSprite
---- !u!114 &-2182231688705517790
+--- !u!114 &-7562039992037362726
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}

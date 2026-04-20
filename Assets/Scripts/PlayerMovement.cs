@@ -9,6 +9,10 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] private float jumpHeight = 1.5f;
     [SerializeField] private float gravity = -20f;
 
+    private Vector3 _knockbackVelocity = Vector3.zero;
+    private float   _knockbackTimer    = 0f;    
+    private float knockbackDuration = 0.3f;
+
 
     private float maxSprintSpeed = 50; 
 
@@ -53,6 +57,16 @@ public class PlayerMovement : MonoBehaviour
         walkSpeed = walkSpeed * (1f + speedIncrease);
         sprintSpeed = sprintSpeed * (1f + speedIncrease);
 
+    }
+
+    public void ApplyKnockback(Vector3 force, float duration)
+    {
+        _knockbackVelocity = force;
+        _knockbackTimer    = duration;
+
+        // Camera shake on knockback hit
+        if (CameraShake.Instance != null)
+            CameraShake.Instance.Shake(0.6f);
     }
 
     public void TeleportPlayer(Vector3 pos, float damage = 15)
@@ -115,6 +129,18 @@ public class PlayerMovement : MonoBehaviour
 
         // --- Gravity ---
         _velocity.y += gravity * Time.deltaTime;
+
+        if (_knockbackTimer > 0f)
+        {
+            _knockbackTimer -= Time.deltaTime;
+            _controller.Move(_knockbackVelocity * Time.deltaTime);
+
+            // Decay the knockback so it eases off rather than cutting out abruptly
+            _knockbackVelocity = Vector3.Lerp(_knockbackVelocity, Vector3.zero,
+                Time.deltaTime * (1f / knockbackDuration) * 3f);
+            return; // Skip normal movement input while being knocked back
+        }
+
         _controller.Move(_velocity * Time.deltaTime);
     }
 }

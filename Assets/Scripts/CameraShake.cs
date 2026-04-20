@@ -29,9 +29,12 @@ public class CameraShake : MonoBehaviour
     // Per-axis Perlin seeds so each axis shakes independently
     private float _seedX, _seedY, _seedRX, _seedRY, _seedRZ;
 
+    private float _overrideDecayRate = 0f;
+    private bool  _useOverrideDecay  = false;
+
     private void Awake()
     {
-        if (Instance != null && Instance != this) { Destroy(this); return; }
+        if (Instance != null && Instance != this) { Destroy(Instance); Instance = this; }
         Instance = this;
 
         _seedX  = Random.Range(0f, 100f);
@@ -72,8 +75,16 @@ public class CameraShake : MonoBehaviour
         transform.localPosition += _lastPosOffset;
         transform.localRotation  = _lastRotOffset * transform.localRotation;
 
-        // Decay trauma
-        _trauma = Mathf.Max(0f, _trauma - decayRate * Time.deltaTime);
+        // Decay trauma — use override rate if set, otherwise fall back to Inspector value
+        float activeDecay = _useOverrideDecay ? _overrideDecayRate : decayRate;
+        _trauma = Mathf.Max(0f, _trauma - activeDecay * Time.deltaTime);
+
+        // Clear override once trauma is exhausted
+        if (_trauma <= 0f)
+        {
+            _useOverrideDecay  = false;
+            _overrideDecayRate = 0f;
+        }
     }
 
     // -------------------------------------------------------------------------
@@ -87,5 +98,24 @@ public class CameraShake : MonoBehaviour
     public void Shake(float traumaAmount = 0.7f)
     {
         _trauma = Mathf.Clamp01(_trauma + traumaAmount);
+    }
+
+        // <summary>
+    /// Shake with a specific intensity and duration.
+    /// Intensity maps directly to trauma (0..1).
+    /// Duration overrides the Inspector decay rate for this shake only.
+    /// </summary>
+    public void Shake(float intensity, float duration)
+    {
+        _trauma = Mathf.Clamp01(_trauma + intensity);
+
+        // Convert duration to a decay rate that will exhaust the trauma over that time
+        // trauma / time gives the rate needed to go from intensity → 0 in duration seconds
+        float targetDecay = intensity / Mathf.Max(duration, 0.01f);
+
+        // Only override decay if this shake wants to last longer than the current one
+        // so a big long shake isn't cut short by a small quick one that fires after it
+        _overrideDecayRate = Mathf.Max(_overrideDecayRate, targetDecay);
+        _useOverrideDecay  = true;
     }
 }

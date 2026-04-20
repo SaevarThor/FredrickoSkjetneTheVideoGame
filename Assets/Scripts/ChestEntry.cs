@@ -19,15 +19,15 @@ public class ChestEntry : MonoBehaviour
         switch(chestType)
         {
             case ChestType.Common:
-            var upgrade = ReferenceManager.Instance.gameManager.GetCommonUpgrade();
+            var upgrade = ReferenceManager.Instance.gameManager.GetCommonUpgrade(true);
             unlockPanel.ShowPanel(upgrade); 
                 break;
             case ChestType.Rare:
-            var upgrade2 = ReferenceManager.Instance.gameManager.GetRareUpgrade();
+            var upgrade2 = ReferenceManager.Instance.gameManager.GetRareUpgrade(true);
             unlockPanel.ShowPanel(upgrade2); 
                 break;
             case ChestType.Epic:
-            var upgrade3 = ReferenceManager.Instance.gameManager.GetEpicUpgrade();
+            var upgrade3 = ReferenceManager.Instance.gameManager.GetEpicUpgrade(true);
             unlockPanel.ShowPanel(upgrade3); 
                 break;
         }

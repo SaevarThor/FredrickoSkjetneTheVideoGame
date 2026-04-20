@@ -19,13 +19,28 @@ public class IntroManager : MonoBehaviour
 
     IEnumerator TypeText()
     {
+
+
         textComponent.text = "";
         foreach (string text in introTexts)
         {
             foreach (char letter in text.ToCharArray())
             {
+                if (letter.ToString() == "<")
+                {
+                    textComponent.text += "<b>"; 
+                    continue;
+                }
+                if (letter.ToString() == ">")
+                {
+                    textComponent.text += "</b>"; 
+                    continue;
+                }
+
+                
                 textComponent.text += letter;
                 yield return new WaitForSeconds(typingSpeed);
+
             }
             // Pause after each text
             yield return new WaitForSeconds(pauseBetweenTexts);
