@@ -1,3 +1,4 @@
+using System.Threading;
 using TMPro;
 using UnityEngine;
 
@@ -16,6 +17,11 @@ public class PlayerHealth : MonoBehaviour, IDamageable
     [SerializeField] private AudioClip[] shieldHitClips;
 
 
+    private float invulnarableTimer = 1; 
+    private float timeElapsed;
+    private bool invulnarable; 
+
+
     private void Start()
     {
         CurrentHealth = 100;
@@ -28,6 +34,8 @@ public class PlayerHealth : MonoBehaviour, IDamageable
 
     public void TakeDamage(float amount)
     {
+        if (invulnarable) return; 
+        print ("player taking damage: " + amount); 
 
         if (playerShield > 0)
         {
@@ -48,6 +56,7 @@ public class PlayerHealth : MonoBehaviour, IDamageable
             hitSource.PlayOneShot(shieldHitClips[Random.Range(0, shieldHitClips.Length)]);
         }
 
+        invulnarable = true;
         UpdateUI();
 
         if (CurrentHealth <= 0)
@@ -56,6 +65,20 @@ public class PlayerHealth : MonoBehaviour, IDamageable
             Die();
         }
 
+    }
+
+    void Update()
+    {
+        if (invulnarable)
+        {
+            timeElapsed += Time.deltaTime; 
+             
+             if(timeElapsed > invulnarableTimer)
+            {
+                invulnarable = false; 
+                timeElapsed = 0;
+            } 
+        }
     }
 
     public bool Heal(float amount)

@@ -102,6 +102,8 @@ Assets/Scripts/
  Upgrade.cs
  UpgradePickUp.cs
  Upgrades/
+  ChargeShotDamageMultiplier.cs
+  ChargeSpeedUpgrade.cs
   DamageBonusUpgrade.cs
   ExtraPalletUpgrade.cs
   FasterPlayerMovementUpgrade.cs

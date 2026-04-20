@@ -32,5 +32,7 @@ public class DamagePlayerTrigger : MonoBehaviour
         }
 
         cs.Shake(10, 20);
+
+        Destroy(this.gameObject);
     }
 }

@@ -11,9 +11,11 @@ public class BossLevel : MonoBehaviour
 
     public GameObject[] Pillars; 
     public GameObject[] secretPillars;
+    public GameObject[] secretPillars2; 
 
     public EnemyHealth bossHealth;
     public GameObject phase2Enemies; 
+    public GameObject phase3Enemies; 
 
     private void Start()
     {
@@ -54,7 +56,6 @@ public class BossLevel : MonoBehaviour
 
         return allPillarsGone; 
     }
-
     public void Phase2Pillars()
     {
         Pillars = secretPillars; 
@@ -66,5 +67,18 @@ public class BossLevel : MonoBehaviour
         }
 
         phase2Enemies.SetActive(true);
+    }
+
+        public void Phase3Pillars()
+    {
+        Pillars = secretPillars2; 
+        bossHealth.MakeInvulnerable();
+
+        foreach(var p in Pillars)
+        {
+            p.SetActive(true); 
+        }
+
+        phase3Enemies.SetActive(true);
     }
 }

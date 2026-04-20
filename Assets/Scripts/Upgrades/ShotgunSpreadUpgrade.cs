@@ -10,7 +10,7 @@ public class ShotgunSpreadUpgrade : Upgrade
     public ShotgunSpreadUpgrade(float amount)
     {
         additionalRange = amount; 
-        UpgradeDescription = $"Shotgun Spread is decreased by {additionalRange}%" ;
+        UpgradeDescription = $"Shotgun Spread is decreased by {additionalRange * 100}%" ;
     }
 
     public override void ApplyUpgrade()
