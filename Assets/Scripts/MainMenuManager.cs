@@ -3,12 +3,16 @@ using UnityEngine.UI;
 
 public class MainMenuManager : MonoBehaviour
 {
-    public Button StartButton; 
+    public Button[] StartButton;
 
     private void Start()
-    {
-        StartButton.onClick.AddListener(StartGame);
-    }
+       {
+        foreach (var button in StartButton)
+        {
+            button.onClick.AddListener(StartGame);
+         }
+      }
+    
 
     public void StartGame()
     {
