@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 6705728020968271487}
   - component: {fileID: 5380126070058424885}
   - component: {fileID: 8487209325894325946}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Cube
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -115,7 +115,7 @@ GameObject:
   - component: {fileID: 1909657023631077919}
   - component: {fileID: 4209157131646574952}
   - component: {fileID: 3077768428394868119}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: HealtPickUp
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -184,7 +184,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8226858575215091990}
   - component: {fileID: 2414337960213387068}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: GameObject
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -287,6 +287,10 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: 8ac124cba407b1369980771fa00c8e74, type: 3}
       propertyPath: m_Name
       value: Pickup_Health
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 8ac124cba407b1369980771fa00c8e74, type: 3}
+      propertyPath: m_Layer
+      value: 2
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

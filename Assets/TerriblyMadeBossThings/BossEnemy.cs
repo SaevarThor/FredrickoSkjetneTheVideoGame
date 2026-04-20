@@ -105,6 +105,8 @@ public class BossEnemy : MonoBehaviour
     private float currentFireRate;
     private float currentSpinSpeed;
 
+    public BossLevel bossLevel; 
+
     private EnemyHealth enemyHealth; 
 
     // ─────────────────────────────────────────────
@@ -288,6 +290,8 @@ public class BossEnemy : MonoBehaviour
         // Restart the fireball loop with the new fire rate
         StopAllCoroutines();
         StartCoroutine(FireballLoop());
+
+        bossLevel.Phase2Pillars();
 
         // TODO: Trigger your Phase 2 VFX / animation here
         // e.g. animator.SetTrigger("Phase2");

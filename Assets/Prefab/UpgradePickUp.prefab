@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 7515694602733753383}
   - component: {fileID: 8543713247852546619}
   - component: {fileID: 5080318824304159214}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: UpgradePickUp
   m_TagString: Eye_PointOfInterest
   m_Icon: {fileID: 0}
@@ -141,7 +141,7 @@ GameObject:
   - component: {fileID: 2248412789525213549}
   - component: {fileID: 1489686843988395822}
   - component: {fileID: 4183571570459120920}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: UpgradePickUp (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -251,7 +251,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6787419663921527164}
   - component: {fileID: 2015939013107461228}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: GameObject
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -354,6 +354,10 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: b324cd9ea2a11eea88c21f756d12c94e, type: 3}
       propertyPath: m_Name
       value: Pickup_upgrade
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: b324cd9ea2a11eea88c21f756d12c94e, type: 3}
+      propertyPath: m_Layer
+      value: 2
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

@@ -1,5 +1,7 @@
 using System.Collections;
+using UnityEditor.Experimental.GraphView;
 using UnityEngine;
+using UnityEngine.Rendering;
 using UnityEngine.SceneManagement;
 
 public class BossLevel : MonoBehaviour
@@ -9,6 +11,16 @@ public class BossLevel : MonoBehaviour
 
     private float timer = 10; 
 
+    public GameObject[] Pillars; 
+    public GameObject[] secretPillars;
+
+    public EnemyHealth bossHealth;
+
+    private void Start()
+    {
+        bossHealth.MakeInvulnerable();
+    }
+
     private void Update()
     {
         if (Boss == null && !gameEnd )
@@ -16,11 +28,42 @@ public class BossLevel : MonoBehaviour
             StartCoroutine(EndGame());
             gameEnd = true; 
         }
+
+        if (AllPillarsGone() && !bossHealth.CanTakeDamage())
+        {
+            bossHealth.MakeVulnerable();
+        }
     }
 
     private IEnumerator EndGame()
     {
         yield return new WaitForSeconds(timer); 
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1); 
+    }
+
+
+    private bool AllPillarsGone()
+    {
+        bool allPillarsGone = true; 
+        foreach(var p in Pillars)
+        {
+            if (p != null)
+            {
+                allPillarsGone = false; 
+            }
+        }
+
+        return allPillarsGone; 
+    }
+
+    public void Phase2Pillars()
+    {
+        Pillars = secretPillars; 
+        bossHealth.MakeInvulnerable();
+
+        foreach(var p in Pillars)
+        {
+            p.SetActive(true); 
+        }
     }
 }

@@ -213,7 +213,14 @@ public class EnemyAIFlyingSupport : BaseEnemyAI
         {
             BaseEnemyAI enemy = hit.GetComponent<BaseEnemyAI>();
             if (enemy != null && enemy != this )
-                candidates.Add(hit.transform);
+            {
+                if (!hit.transform.CompareTag("FlyingEnemy"))
+                    candidates.Add(hit.transform);
+            }
+
+            BossEnemy boss = hit.GetComponent<BossEnemy>();
+            if (boss != null) 
+                candidates.Add(hit.transform); 
         }
 
         if (candidates.Count == 0)

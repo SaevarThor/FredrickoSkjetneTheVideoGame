@@ -409,6 +409,9 @@ public class ShotgunShooter : MonoBehaviour
     // Upgrades
     // -------------------------------------------------------------------------
     public void ApplyFireRateUpgrade(float newFireRate)    => fireRate   = fireRate   * (1f - newFireRate);
+    public void AddPellets(int amount) => pelletsPerShot += amount; 
+    public void AddRange(float amount) => range += amount; 
+    public void LowerSpread(float amount) => spreadAngle = spreadAngle * (1f - amount); 
     public void ApplyReloadSpeedUpgrade(float newReload)
     {
         reloadTime = reloadTime * (1f - newReload);
@@ -426,6 +429,7 @@ public class ShotgunShooter : MonoBehaviour
         maxAmmo   += Mathf.RoundToInt(additionalShots);
         UpdateUI();
     } 
+
 
     // -------------------------------------------------------------------------
     // Helpers

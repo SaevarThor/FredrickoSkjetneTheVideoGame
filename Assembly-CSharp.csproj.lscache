@@ -85,6 +85,7 @@ Assets/Scripts/
  MovingPlatform.cs
  MusicManager.cs
  MuzleLight.cs
+ Pillar.cs
  PlayerHealth.cs
  PlayerMovement.cs
  ProximityShake.cs
@@ -100,10 +101,13 @@ Assets/Scripts/
  UpgradePickUp.cs
  Upgrades/
   DamageBonusUpgrade.cs
+  ExtraPalletUpgrade.cs
   FasterPlayerMovementUpgrade.cs
   FireRateUpgrade.cs
   LargerMagUpgrade.cs
   ReloadSpeedUpgrade.cs
+  ShotgunRangeUpgrade.cs
+  ShotgunSpreadUpgrade.cs
  WeaponSway.cs
 Assets/
  scrumbus.cs
